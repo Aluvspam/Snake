@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="Highscore.cs" />
     <Compile Include="Menu.cs" />
