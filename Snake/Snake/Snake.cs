@@ -9,12 +9,14 @@ namespace Snake
     public class Snake
     {
         public int Length;
-        //public Point Head;
-        //public Point Body = new List<Point>();
+        public int Life;
+        public Point Head;
+        public List<Point> Body = new List<Point>();
 
         public Snake()
         {
             Length = 3;
+            Life = 0;
         }
 
         public void MoveForward()
