@@ -11,7 +11,7 @@ namespace Snake
         public DateTime Speed;
         public int GrowLength;
         public string Wall;
-
+        public Point point;//use of point
         public GamePlay(DateTime speed, string wall)
         {
             Speed = speed;
