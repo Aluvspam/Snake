@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exit.cs" />
+    <Compile Include="Food.cs" />
     <Compile Include="Highscore.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Options.cs" />
