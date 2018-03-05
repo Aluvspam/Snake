@@ -12,6 +12,13 @@ namespace Snake
         public int GrowLength;
         public string Wall;
         public Point point;//use of point
+        public Snake snake;
+
+        public void TurnRight()
+        {
+            Snake S = new Snake();
+           // S.TurnRight;
+        }
         public GamePlay(DateTime speed, string wall)
         {
             Speed = speed;
