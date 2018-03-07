@@ -8,6 +8,6 @@ namespace Snake
 {
     public class SeeMyScore
     {
-
+        public int Score;
     }
 }
