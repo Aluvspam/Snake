@@ -8,16 +8,21 @@ namespace Snake
 {
     public class Food
     {
+        public Point location;
 
-        public Point Location;
-        public bool HealthyFood;
+        Random random = new Random();
 
-        public void ResetLocation()
+        public void DrawFood()
         {
-            throw new NotSupportedException();
+            // creating the food using the IFood class 
+            throw NotImplementedException;
         }
 
-
+        public void SetFoodLocation()
+        {
+            // randomly set the position of the food using location
+            throw NotImplementedException;
+        }
 
     }
 
