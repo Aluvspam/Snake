@@ -14,6 +14,8 @@ namespace Snake
         public Point Head;
         public List<Point> Body = new List<Point>();
 
+        
+
         public Snake()
         {
             Length = 3;
@@ -28,6 +30,7 @@ namespace Snake
 				Body.Add(new Point(3, 2 + i));
 			}
 		}
+
 
         public void MoveForward()
         {
