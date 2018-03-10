@@ -13,7 +13,7 @@ namespace Snake
         public Point Head;
         public List<Point> Body = new List<Point>();
 
-        public enum Directions { ClockWise, CounterClockWise};
+        
 
         public Snake()
         {
@@ -30,7 +30,6 @@ namespace Snake
 			}
 		}
 
-        public Directions Move { get; set; }
 
         public void MoveForward()
         {
