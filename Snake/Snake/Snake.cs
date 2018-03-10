@@ -42,7 +42,9 @@ namespace Snake
         }
         public void MoveBody()
         {
-
+			//Move Snake
+			Point next = Body[0];
+			Body.Insert(0, next);
         }
         public void TurnLeft()
         {
