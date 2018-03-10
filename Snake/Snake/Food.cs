@@ -15,13 +15,13 @@ namespace Snake
         public void DrawFood()
         {
             // creating the food using the IFood class 
-            throw NotImplementedException;
+            throw new NotImplementedException();
         }
 
         public void SetFoodLocation()
         {
             // randomly set the position of the food using location
-            throw NotImplementedException;
+            throw new NotImplementedException();
         }
 
     }

@@ -102,18 +102,18 @@
             // lblDifficulty
             // 
             this.lblDifficulty.AutoSize = true;
-            this.lblDifficulty.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDifficulty.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDifficulty.ForeColor = System.Drawing.Color.Maroon;
             this.lblDifficulty.Location = new System.Drawing.Point(573, 157);
             this.lblDifficulty.Name = "lblDifficulty";
-            this.lblDifficulty.Size = new System.Drawing.Size(111, 29);
+            this.lblDifficulty.Size = new System.Drawing.Size(85, 23);
             this.lblDifficulty.TabIndex = 6;
             this.lblDifficulty.Text = "Difficulty";
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.numericUpDown1.Font = new System.Drawing.Font("Blackadder ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Font = new System.Drawing.Font("Blackadder ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.Maroon;
             this.numericUpDown1.Location = new System.Drawing.Point(710, 157);
             this.numericUpDown1.Maximum = new decimal(new int[] {
@@ -122,7 +122,7 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 34);
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 28);
             this.numericUpDown1.TabIndex = 7;
             this.numericUpDown1.Value = new decimal(new int[] {
             5,
