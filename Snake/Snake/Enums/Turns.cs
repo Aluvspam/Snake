@@ -10,6 +10,4 @@ namespace Snake.Enums
     {
         ClockWise, AntiClockWise
     }
-
-
 }
