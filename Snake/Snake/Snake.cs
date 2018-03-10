@@ -19,6 +19,8 @@ namespace Snake
             Life = 0;
         }
 
+
+
         public void MoveForward()
         {
             throw new NotImplementedException();
