@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,14 @@ namespace Snake
         {
            
         }
+        public void MoveTurnHead(Turns turnsTo)
+        {
 
+        }
+        public void MoveBody()
+        {
+
+        }
         public void TurnLeft()
         {
             throw new NotImplementedException();
