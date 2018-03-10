@@ -38,22 +38,15 @@ namespace Snake
         }
         public void MoveTurnHead(Turns turnsTo)
         {
-
+            if(turnsTo == Turns.ClockWise)
+            {
+                Direction++;
+            }
         }
         public void MoveBody()
         {
 
         }
-        public void TurnLeft()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TurnRight()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Eat()
         {
             throw new NotImplementedException();
