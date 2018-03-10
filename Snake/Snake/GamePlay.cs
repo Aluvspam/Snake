@@ -11,7 +11,7 @@ namespace Snake
         public DateTime Speed;
         public int GrowLength;
         public string Wall;
-        public Point point;//use of point
+        public int score; // increment/decrement score when snake eats
         public Snake snake;
         private static GamePlay instance;
         public static GamePlay Instance
