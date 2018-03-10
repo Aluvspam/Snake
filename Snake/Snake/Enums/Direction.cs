@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Snake.Enums
 {
-    class Direction
+    public enum Directions
     {
-        public enum Directions { North, South, East, West };
-
-        public Directions Move { get; set; }
-
+        North,
+        East,
+        South,
+        West
     }
 }
