@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Snake.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,20 +27,17 @@ namespace Snake
             }
         }
         #region SNAKE MOTION
-        public void TurnRight()
-        {
-            Snake s = new Snake();
-            s.TurnRight();
-        }
-        public void TurnLeft()
-        {
-            Snake s = new Snake();
-            s.TurnLeft();
-        }
         public void MoveForward()
         {
             Snake s = new Snake();
             s.MoveForward();
+            s.MoveBody();
+        }
+        public void Turn(Turns turnsTo)
+        {
+            Snake s = new Snake();
+            s.MoveForward();
+          //  s.MoveTurnHead(Turns.AntiClockWise) ? turnsTo == Turns.AntiClockWise : turnsTo == Turns.AntiClockWise;
         }
         #endregion
         #region SNAKE EATS 
