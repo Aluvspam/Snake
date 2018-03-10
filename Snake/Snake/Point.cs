@@ -11,7 +11,7 @@ namespace Snake
 		private int v1;
 		private int v2;
 
-		public int X { get; set; }//locatia x si y a obiectului snake
+		public int X { get; set; }
         public int Y { get; set; }
         
 
@@ -21,9 +21,6 @@ namespace Snake
             X = x;
             Y = y;
         }
-
-		
-
 		
         public override string ToString()
         {

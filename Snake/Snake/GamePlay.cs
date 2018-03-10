@@ -31,6 +31,7 @@ namespace Snake
         {
             Snake s = new Snake();
             s.MoveForward();
+            s.MoveTurnHead(turnsTo);
 
         }
         #endregion

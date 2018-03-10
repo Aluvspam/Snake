@@ -38,7 +38,10 @@ namespace Snake
         }
         public void MoveTurnHead(Turns turnsTo)
         {
-
+            if(turnsTo == Turns.ClockWise)
+            {
+                Direction++;
+            }
         }
         public void MoveBody()
         {
@@ -46,16 +49,6 @@ namespace Snake
 			Point next = Body[0];
 			Body.Insert(0, next);
         }
-        public void TurnLeft()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TurnRight()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Eat()
         {
             throw new NotImplementedException();
