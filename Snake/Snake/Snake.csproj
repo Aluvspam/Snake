@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Turns.cs" />
     <Compile Include="Exit.cs" />
     <Compile Include="Food.cs" />
     <Compile Include="Highscore.cs" />
