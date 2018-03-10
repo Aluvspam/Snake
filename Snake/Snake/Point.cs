@@ -21,13 +21,6 @@ namespace Snake
             X = x;
             Y = y;
         }
-
-		public Point(int v1, int v2)
-		{
-			this.v1 = v1;
-			this.v2 = v2;
-		}
-
 		
         public override string ToString()
         {
