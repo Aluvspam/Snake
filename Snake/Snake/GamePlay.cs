@@ -14,6 +14,7 @@ namespace Snake
         public string Wall;
         public int score; // increment/decrement score when snake eats
         public Snake snake;
+       // public int Direction { get { return snake.Direction}}
         private static GamePlay instance;
         public static GamePlay Instance
         {
@@ -37,7 +38,7 @@ namespace Snake
         {
             Snake s = new Snake();
             s.MoveForward();
-          //  s.MoveTurnHead(Turns.AntiClockWise) ? turnsTo == Turns.AntiClockWise : turnsTo == Turns.AntiClockWise;
+
         }
         #endregion
         #region SNAKE EATS 
