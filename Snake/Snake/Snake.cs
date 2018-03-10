@@ -18,6 +18,7 @@ namespace Snake
             Length = 3;
             Life = 0;
         }
+
 		//Daca nu e bine, dam cu delete :) (Luana)
 		public void InitializeSnake()
 		{
@@ -28,9 +29,11 @@ namespace Snake
 			}
 		}
 
+		
+
         public void MoveForward()
         {
-           
+			throw new NotImplementedException();
         }
 
         public void TurnLeft()
