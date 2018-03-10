@@ -8,8 +8,10 @@ namespace Snake
 {
     public class Point
     {
+		private int v1;
+		private int v2;
 
-        public int X { get; set; }//locatia x si y a obiectului snake
+		public int X { get; set; }//locatia x si y a obiectului snake
         public int Y { get; set; }
         public int Width { get; set; } //ajutor in setarea obiectului sarpe, localizare plasare food, dimensiuni tabla de joc
         public int Height { get; set; }
@@ -25,7 +27,13 @@ namespace Snake
             Y = y;
         }
 
-        public void Die()
+		public Point(int v1, int v2)
+		{
+			this.v1 = v1;
+			this.v2 = v2;
+		}
+
+		public void Die()
         {
             EndGame = true;
         }

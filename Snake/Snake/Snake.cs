@@ -18,10 +18,19 @@ namespace Snake
             Length = 3;
             Life = 0;
         }
+		//Daca nu e bine, dam cu delete :) (Luana)
+		public void InitializeSnake()
+		{
+			//intialize snake AKA move forward - Snake length 3. (by Luana)
+			for (int i = 0; i < Length; i++)
+			{
+				Body.Add(new Point(3, 2 + i));
+			}
+		}
 
         public void MoveForward()
         {
-            throw new NotImplementedException();
+           
         }
 
         public void TurnLeft()
