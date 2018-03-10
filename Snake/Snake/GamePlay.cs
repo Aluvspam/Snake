@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    public abstract class GamePlay
+    public class GamePlay
     {
         public DateTime Speed;
         public int GrowLength;
         public string Wall;
         public Point point;//use of point
         public Snake snake;
-#region SNAKE MOTION
+        private static GamePlay instance;
+        public static GamePlay Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GamePlay();
+                }
+                return instance;
+            }
+        }
+        #region SNAKE MOTION
         public void TurnRight()
         {
             Snake s = new Snake();
@@ -30,22 +42,12 @@ namespace Snake
             s.MoveForward();
         }
         #endregion
-#region SNAKE EATS 
+        #region SNAKE EATS 
         public void SnakeEat()
         {
             Snake s = new Snake();
             s.Eat();
         }
-#endregion
-        public GamePlay(DateTime speed, string wall)
-        {
-            Speed = speed;
-            Wall = wall;
-        }
-
-        public abstract void Move();
-        public abstract void Controls();
-        public abstract void StartGame();
-        public abstract void EndGame();   
+        #endregion
     }
 }

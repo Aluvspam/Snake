@@ -11,5 +11,11 @@ namespace Snake
 		public string playerName;
 		public int highScore;
 		public DateTime highScoreDate;
+
+		public string PlayerName(string pName)
+		{
+			pName = Console.ReadLine();
+			return pName;
+		}
 	}
 }
