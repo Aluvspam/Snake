@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.Canvas = new System.Windows.Forms.PictureBox();
-            this.LblScore = new System.Windows.Forms.Label();
             this.btnPlay = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -40,8 +39,15 @@
             this.txtHihghScore = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.ctnRestart = new System.Windows.Forms.Button();
+            this.lblOptions = new System.Windows.Forms.Label();
+            this.lblWidth = new System.Windows.Forms.Label();
+            this.lblHeight = new System.Windows.Forms.Label();
+            this.sizeHeight = new System.Windows.Forms.NumericUpDown();
+            this.sizeWidth = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeHeight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeWidth)).BeginInit();
             this.SuspendLayout();
             // 
             // Canvas
@@ -53,16 +59,6 @@
             this.Canvas.Size = new System.Drawing.Size(533, 506);
             this.Canvas.TabIndex = 0;
             this.Canvas.TabStop = false;
-            // 
-            // LblScore
-            // 
-            this.LblScore.AutoSize = true;
-            this.LblScore.Font = new System.Drawing.Font("Blackadder ITC", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblScore.ForeColor = System.Drawing.Color.Maroon;
-            this.LblScore.Location = new System.Drawing.Point(752, 22);
-            this.LblScore.Name = "LblScore";
-            this.LblScore.Size = new System.Drawing.Size(0, 41);
-            this.LblScore.TabIndex = 2;
             // 
             // btnPlay
             // 
@@ -76,6 +72,7 @@
             this.btnPlay.TabIndex = 3;
             this.btnPlay.Text = "Play";
             this.btnPlay.UseVisualStyleBackColor = false;
+            this.btnPlay.Click += new System.EventHandler(this.btnPlay_Click);
             // 
             // lblName
             // 
@@ -83,7 +80,7 @@
             this.lblName.BackColor = System.Drawing.Color.Maroon;
             this.lblName.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblName.Location = new System.Drawing.Point(566, 27);
+            this.lblName.Location = new System.Drawing.Point(566, 12);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(68, 29);
             this.lblName.TabIndex = 4;
@@ -92,9 +89,9 @@
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.NavajoWhite;
-            this.txtName.Font = new System.Drawing.Font("Blackadder ITC", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.Maroon;
-            this.txtName.Location = new System.Drawing.Point(674, 29);
+            this.txtName.Location = new System.Drawing.Point(672, 12);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(120, 34);
             this.txtName.TabIndex = 5;
@@ -113,7 +110,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.BackColor = System.Drawing.Color.NavajoWhite;
-            this.numericUpDown1.Font = new System.Drawing.Font("Blackadder ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown1.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.Maroon;
             this.numericUpDown1.Location = new System.Drawing.Point(710, 157);
             this.numericUpDown1.Maximum = new decimal(new int[] {
@@ -122,8 +119,9 @@
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(49, 28);
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 30);
             this.numericUpDown1.TabIndex = 7;
+            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.Value = new decimal(new int[] {
             5,
             0,
@@ -133,6 +131,7 @@
             // rbFullScreen
             // 
             this.rbFullScreen.AutoSize = true;
+            this.rbFullScreen.Checked = true;
             this.rbFullScreen.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFullScreen.ForeColor = System.Drawing.Color.Maroon;
             this.rbFullScreen.Location = new System.Drawing.Point(572, 189);
@@ -142,6 +141,7 @@
             this.rbFullScreen.TabStop = true;
             this.rbFullScreen.Text = "Full Screen";
             this.rbFullScreen.UseVisualStyleBackColor = true;
+            this.rbFullScreen.CheckedChanged += new System.EventHandler(this.rbFullScreen_CheckedChanged);
             // 
             // rbCustom
             // 
@@ -152,7 +152,6 @@
             this.rbCustom.Name = "rbCustom";
             this.rbCustom.Size = new System.Drawing.Size(117, 27);
             this.rbCustom.TabIndex = 9;
-            this.rbCustom.TabStop = true;
             this.rbCustom.Text = "Custom Size";
             this.rbCustom.UseVisualStyleBackColor = true;
             // 
@@ -195,13 +194,101 @@
             this.ctnRestart.TabIndex = 12;
             this.ctnRestart.Text = "Restart";
             this.ctnRestart.UseVisualStyleBackColor = false;
+            this.ctnRestart.Click += new System.EventHandler(this.ctnRestart_Click);
+            // 
+            // lblOptions
+            // 
+            this.lblOptions.AutoSize = true;
+            this.lblOptions.BackColor = System.Drawing.Color.Maroon;
+            this.lblOptions.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOptions.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblOptions.Location = new System.Drawing.Point(566, 115);
+            this.lblOptions.Name = "lblOptions";
+            this.lblOptions.Size = new System.Drawing.Size(89, 29);
+            this.lblOptions.TabIndex = 13;
+            this.lblOptions.Text = "Options";
+            // 
+            // lblWidth
+            // 
+            this.lblWidth.AutoSize = true;
+            this.lblWidth.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWidth.ForeColor = System.Drawing.Color.Maroon;
+            this.lblWidth.Location = new System.Drawing.Point(573, 252);
+            this.lblWidth.Name = "lblWidth";
+            this.lblWidth.Size = new System.Drawing.Size(86, 23);
+            this.lblWidth.TabIndex = 14;
+            this.lblWidth.Text = "Width(px)";
+            this.lblWidth.Visible = false;
+            // 
+            // lblHeight
+            // 
+            this.lblHeight.AutoSize = true;
+            this.lblHeight.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeight.ForeColor = System.Drawing.Color.Maroon;
+            this.lblHeight.Location = new System.Drawing.Point(573, 219);
+            this.lblHeight.Name = "lblHeight";
+            this.lblHeight.Size = new System.Drawing.Size(93, 23);
+            this.lblHeight.TabIndex = 15;
+            this.lblHeight.Text = "Height (px)";
+            this.lblHeight.Visible = false;
+            // 
+            // sizeHeight
+            // 
+            this.sizeHeight.Location = new System.Drawing.Point(673, 221);
+            this.sizeHeight.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeHeight.Minimum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeHeight.Name = "sizeHeight";
+            this.sizeHeight.Size = new System.Drawing.Size(54, 20);
+            this.sizeHeight.TabIndex = 16;
+            this.sizeHeight.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeHeight.Visible = false;
+            // 
+            // sizeWidth
+            // 
+            this.sizeWidth.Location = new System.Drawing.Point(673, 255);
+            this.sizeWidth.Maximum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeWidth.Minimum = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeWidth.Name = "sizeWidth";
+            this.sizeWidth.Size = new System.Drawing.Size(54, 20);
+            this.sizeWidth.TabIndex = 17;
+            this.sizeWidth.Value = new decimal(new int[] {
+            200,
+            0,
+            0,
+            0});
+            this.sizeWidth.Visible = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
-            this.ClientSize = new System.Drawing.Size(861, 530);
+            this.ClientSize = new System.Drawing.Size(874, 530);
+            this.Controls.Add(this.sizeWidth);
+            this.Controls.Add(this.sizeHeight);
+            this.Controls.Add(this.lblHeight);
+            this.Controls.Add(this.lblWidth);
+            this.Controls.Add(this.lblOptions);
             this.Controls.Add(this.ctnRestart);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtHihghScore);
@@ -212,12 +299,14 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnPlay);
-            this.Controls.Add(this.LblScore);
             this.Controls.Add(this.Canvas);
             this.Name = "Form1";
             this.Text = "Snake Game";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeHeight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sizeWidth)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +315,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox Canvas;
-        private System.Windows.Forms.Label LblScore;
         private System.Windows.Forms.Button btnPlay;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtName;
@@ -237,5 +325,10 @@
         private System.Windows.Forms.TextBox txtHihghScore;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button ctnRestart;
+        private System.Windows.Forms.Label lblOptions;
+        private System.Windows.Forms.Label lblWidth;
+        private System.Windows.Forms.Label lblHeight;
+        private System.Windows.Forms.NumericUpDown sizeHeight;
+        private System.Windows.Forms.NumericUpDown sizeWidth;
     }
 }
