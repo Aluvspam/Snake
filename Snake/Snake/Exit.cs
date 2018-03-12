@@ -8,6 +8,9 @@ namespace Snake
 {
     class Exit
     {
-
+        public static void ButtonClicked()
+        {
+           //TO DO: save score...
+        }
     }
 }

@@ -99,6 +99,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(120, 34);
             this.txtName.TabIndex = 5;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblDifficulty
             // 
