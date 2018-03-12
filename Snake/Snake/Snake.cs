@@ -53,5 +53,12 @@ namespace Snake
         {
             throw new NotImplementedException();
         }
+
+        public void Grow()
+        {
+            var aux = new Point(Body[Body.Count - 1].X, Body[Body.Count - 1].Y);
+            MoveForward();
+            Body.Add(aux);
+        }
     }
 }
