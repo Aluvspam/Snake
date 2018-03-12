@@ -78,6 +78,11 @@ namespace Start
 
         }
 
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnClockwise_Click(object sender, EventArgs e)
         {
 
