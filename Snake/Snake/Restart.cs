@@ -8,5 +8,6 @@ namespace Snake
 {
     class Restart
     {
+
     }
 }
