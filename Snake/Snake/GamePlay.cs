@@ -18,7 +18,14 @@ namespace Snake
         private static GamePlay instance;
         public static GamePlay Instance
         {
-            get { if (instance == null) { instance = new GamePlay(); } return instance; }
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new GamePlay();
+                }
+                return instance;
+            }
         }
         #region SNAKE MOTION
         public void MoveForward()
