@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    public class SeeMyScore
+    public class Score
     {
         int score = 0;
         public int GetScore()

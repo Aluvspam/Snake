@@ -8,6 +8,6 @@ namespace Snake.Enums
 {
     public enum Turns
     {
-        ClockWise, AntiClockWise
+        ClockWise, AntiClockWise, MoveForward
     }
 }
