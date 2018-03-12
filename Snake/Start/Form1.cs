@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
+using Snake;
 
 namespace Start
 {
@@ -23,9 +24,9 @@ namespace Start
             SystemSounds.Exclamation.Play();
             MessageBox.Show("Are you sure you want to quit?");
             Application.Exit();
-          
+
         }
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -70,7 +71,7 @@ namespace Start
 
         private void Canvas_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void lblScore_Click(object sender, EventArgs e)
@@ -85,7 +86,12 @@ namespace Start
 
         private void btnClockwise_Click(object sender, EventArgs e)
         {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
+        }
 
+        private void btnAnticlockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
         }
     }
 }
