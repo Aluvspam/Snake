@@ -77,5 +77,10 @@ namespace Start
         {
 
         }
+
+        private void btnClockwise_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

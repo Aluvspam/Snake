@@ -47,6 +47,8 @@
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
+            this.btnClockwise = new System.Windows.Forms.Button();
+            this.btnAnticlockwise = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sizeHeight)).BeginInit();
@@ -165,7 +167,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(660, 402);
+            this.btnExit.Location = new System.Drawing.Point(568, 356);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(112, 40);
             this.btnExit.TabIndex = 11;
@@ -179,7 +181,7 @@
             this.ctnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ctnRestart.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctnRestart.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ctnRestart.Location = new System.Drawing.Point(660, 448);
+            this.ctnRestart.Location = new System.Drawing.Point(568, 432);
             this.ctnRestart.Name = "ctnRestart";
             this.ctnRestart.Size = new System.Drawing.Size(112, 40);
             this.ctnRestart.TabIndex = 12;
@@ -291,12 +293,33 @@
             this.lblScore.Text = "variabila scor";
             this.lblScore.Click += new System.EventHandler(this.lblScore_Click);
             // 
+            // btnClockwise
+            // 
+            this.btnClockwise.Location = new System.Drawing.Point(767, 276);
+            this.btnClockwise.Name = "btnClockwise";
+            this.btnClockwise.Size = new System.Drawing.Size(82, 23);
+            this.btnClockwise.TabIndex = 21;
+            this.btnClockwise.Text = "Clockwise";
+            this.btnClockwise.UseVisualStyleBackColor = true;
+            this.btnClockwise.Click += new System.EventHandler(this.btnClockwise_Click);
+            // 
+            // btnAnticlockwise
+            // 
+            this.btnAnticlockwise.Location = new System.Drawing.Point(767, 311);
+            this.btnAnticlockwise.Name = "btnAnticlockwise";
+            this.btnAnticlockwise.Size = new System.Drawing.Size(82, 23);
+            this.btnAnticlockwise.TabIndex = 22;
+            this.btnAnticlockwise.Text = "Anticlockwise";
+            this.btnAnticlockwise.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(874, 530);
+            this.Controls.Add(this.btnAnticlockwise);
+            this.Controls.Add(this.btnClockwise);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.sizeWidth);
@@ -346,5 +369,7 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
+        private System.Windows.Forms.Button btnClockwise;
+        private System.Windows.Forms.Button btnAnticlockwise;
     }
 }
