@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Start
 {
@@ -19,9 +20,12 @@ namespace Start
 
         private void btnExit_Click(object sender, EventArgs e)
         {
+            SystemSounds.Exclamation.Play();
+            MessageBox.Show("Are you sure you want to quit?");
             Application.Exit();
+          
         }
-
+       
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -53,15 +57,25 @@ namespace Start
         private void btnPlay_Click(object sender, EventArgs e)
         {
 
-            if (txtName.Text != " ")
-            {
-                Snake.Player.PlayerName == txtName.Text;
+            //if (txtName.Text != " ")
+            //{
+            //    Snake.Player.PlayerName == txtName.Text;
 
-            }
-            else
-            {
-                MessageBox.Show("Please enter your name");
-            }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please enter your name");
+            //}
+        }
+
+        private void Canvas_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void lblScore_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
