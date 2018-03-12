@@ -312,6 +312,7 @@
             this.btnAnticlockwise.TabIndex = 22;
             this.btnAnticlockwise.Text = "Anticlockwise";
             this.btnAnticlockwise.UseVisualStyleBackColor = true;
+            this.btnAnticlockwise.Click += new System.EventHandler(this.btnAnticlockwise_Click);
             // 
             // Form1
             // 

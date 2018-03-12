@@ -88,5 +88,10 @@ namespace Start
         {
             GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
         }
+
+        private void btnAnticlockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
+        }
     }
 }
