@@ -72,7 +72,7 @@
             this.btnPlay.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPlay.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlay.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnPlay.Location = new System.Drawing.Point(660, 356);
+            this.btnPlay.Location = new System.Drawing.Point(568, 357);
             this.btnPlay.Name = "btnPlay";
             this.btnPlay.Size = new System.Drawing.Size(112, 40);
             this.btnPlay.TabIndex = 3;
@@ -168,7 +168,7 @@
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnExit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(568, 356);
+            this.btnExit.Location = new System.Drawing.Point(568, 403);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(112, 40);
             this.btnExit.TabIndex = 11;
@@ -182,7 +182,7 @@
             this.ctnRestart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ctnRestart.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctnRestart.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.ctnRestart.Location = new System.Drawing.Point(568, 432);
+            this.ctnRestart.Location = new System.Drawing.Point(568, 449);
             this.ctnRestart.Name = "ctnRestart";
             this.ctnRestart.Size = new System.Drawing.Size(112, 40);
             this.ctnRestart.TabIndex = 12;
@@ -296,22 +296,28 @@
             // 
             // btnClockwise
             // 
-            this.btnClockwise.Location = new System.Drawing.Point(767, 276);
+            this.btnClockwise.BackColor = System.Drawing.Color.Maroon;
+            this.btnClockwise.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClockwise.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnClockwise.Location = new System.Drawing.Point(739, 357);
             this.btnClockwise.Name = "btnClockwise";
-            this.btnClockwise.Size = new System.Drawing.Size(82, 23);
+            this.btnClockwise.Size = new System.Drawing.Size(123, 40);
             this.btnClockwise.TabIndex = 21;
             this.btnClockwise.Text = "Clockwise";
-            this.btnClockwise.UseVisualStyleBackColor = true;
+            this.btnClockwise.UseVisualStyleBackColor = false;
             this.btnClockwise.Click += new System.EventHandler(this.btnClockwise_Click);
             // 
             // btnAnticlockwise
             // 
-            this.btnAnticlockwise.Location = new System.Drawing.Point(767, 311);
+            this.btnAnticlockwise.BackColor = System.Drawing.Color.Maroon;
+            this.btnAnticlockwise.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnticlockwise.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAnticlockwise.Location = new System.Drawing.Point(739, 409);
             this.btnAnticlockwise.Name = "btnAnticlockwise";
-            this.btnAnticlockwise.Size = new System.Drawing.Size(82, 23);
+            this.btnAnticlockwise.Size = new System.Drawing.Size(123, 36);
             this.btnAnticlockwise.TabIndex = 22;
             this.btnAnticlockwise.Text = "Anticlockwise";
-            this.btnAnticlockwise.UseVisualStyleBackColor = true;
+            this.btnAnticlockwise.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
