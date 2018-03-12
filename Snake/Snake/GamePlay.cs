@@ -37,7 +37,7 @@ namespace Snake
         public void Turn(Turns turnsTo)
         {
             Snake s = new Snake();
-            s.MoveForward();
+            s.MoveBody();
             s.MoveTurnHead(turnsTo);
 
         }
