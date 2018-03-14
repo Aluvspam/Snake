@@ -15,7 +15,8 @@ namespace Start
     public partial class Form1 : Form
     {
         private static int Speed { get; set; }
-        private static int Score { get; set; }//cand seteaza Daniel clasa score, il sterg pe asta de aici
+        public static bool GameOver { get; set; }
+        private static int Score { get; set; }
         public Form1()
         {
             InitializeComponent();
@@ -25,8 +26,21 @@ namespace Start
             gameTimer.Interval = 1000 / Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
+            GameOver = false;
+            StartGame();
 
         }
+        private void StartGame()
+        {
+            lblEndGame.Visible = false;//set to default
+            //de resetat new settings
+            GamePlay.Instance.snake.Add();
+        }
+        private void EndGame()
+        {
+
+        }
+
         private void Update(object sender, EventArgs e)//
         {
 
@@ -35,35 +49,12 @@ namespace Start
         {
             SystemSounds.Exclamation.Play();
             MessageBox.Show("Are you sure you want to quit?");
-//TO DO btnExit_Click in Exit + score> highscore, highscore = new score here
+            //TO DO btnExit_Click in Exit + score> highscore, highscore = new score here
             Application.Exit();
         }
-        private void Form1_Load(object sender, EventArgs e)//plansa snake game
-        {
-
-        }
-
         private void ctnRestart_Click(object sender, EventArgs e)
         {
             Application.Restart();
-        }
-
-        private void rbFullScreen_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbCustom.Checked == true)//Checked din winF
-            {
-                lblHeight.Visible = true;
-                lblWidth.Visible = true;
-                sizeHeight.Visible = true;
-                sizeWidth.Visible = true;
-            }
-            else
-            {
-                lblHeight.Visible = false;
-                lblWidth.Visible = false;
-                sizeHeight.Visible = false;
-                sizeWidth.Visible = false;
-            }
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -71,19 +62,11 @@ namespace Start
             if (txtName.Text != " ")
             {
                 Player.Name = txtName.Text;
-                if (rbCustom.Checked == true)
-                {
-                    Player.Height = Convert.ToInt32(sizeHeight.Value);
-                    Player.Width = Convert.ToInt32(sizeWidth.Value);
-                }
-                else
-                {
-                    Player.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                    Player.Width = Screen.PrimaryScreen.WorkingArea.Width;
-
-                }
+                Player.Difficulty = Convert.ToInt32(Difficulty.Value);
 
             }
+
+
             else
             {
                 MessageBox.Show("Please enter your name");
@@ -99,32 +82,48 @@ namespace Start
         {
 
         }
-
         private void btnClockwise_Click(object sender, EventArgs e)
         {
             GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
         }
-
         private void btnAnticlockwise_Click(object sender, EventArgs e)
         {
             GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
         }
-
         private void gameTimer_Tick(object sender, EventArgs e)
         {
 
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Form1_Load(object sender, EventArgs e)//plansa snake game
         {
             InitializeBoard();
         }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
         private void InitializeBoard()
         {
-            for (int i = 0; i < 25; i++)
+            boardGame.DefaultCellStyle.BackColor = Color.DarkSlateBlue;
+            for (int i = 0; i < 68; i++)
             {
-                boardGame.BackgroundColor = Color.Azure;
-                boardGame.DefaultCellStyle.BackColor = Color.Blue;
-                //boardGame.Rows;
+                boardGame.Rows.Add();
+            }
+            foreach (DataGridViewColumn c in boardGame.Columns)//latime coloane
+            {
+                c.Width = boardGame.Width / boardGame.Columns.Count;
+            }
+            foreach (DataGridViewRow r in boardGame.Rows)//latime randuri
+            {
+                r.Height = boardGame.Height / boardGame.Rows.Count;
+            }
+
+            for (int row = 0; row < boardGame.Rows.Count; row++)//toate celulele read only
+            {
+                for (int col = 0; col < boardGame.Columns.Count; col++)
+                {
+                    boardGame[col, row].ReadOnly = true;
+                }
             }
         }
     }
