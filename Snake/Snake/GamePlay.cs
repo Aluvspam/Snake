@@ -16,6 +16,12 @@ namespace Snake
         public Snake snake;
         public Directions Direction { get { return snake.Direction; } }
         private static GamePlay instance;
+        public static bool EndGame { get; set; }
+        public GamePlay()
+        {
+            EndGame = false;
+            score = 0;
+        }
         public static GamePlay Instance
 
         {

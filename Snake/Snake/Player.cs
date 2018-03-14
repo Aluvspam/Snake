@@ -8,7 +8,8 @@ namespace Snake
 {
     public class Player
     {
-        public string playerName;
+        public static string playerName;
+        public static int Difficulty;
         public int highScore;
         public DateTime highScoreDate;
 
@@ -18,30 +19,8 @@ namespace Snake
             return pName;
         }
 
-        static string _Name = " ";//by Dana, nu puteam accesa numele, daca il fixezi la tine, il sterg pe-al meu
-        public static string Name
-        {
-            get
-            {
-                return Name;
-            }
-            set
-            {
-                _Name = value;
-            }
-        }
-        static int _Difficulty = 0;
-        public static int Difficulty
-        {
-            get
-            {
-                return Difficulty;
-            }
-            set
-            {
-                _Difficulty = value;
-            }
-        }
+
+      
 
 
     }

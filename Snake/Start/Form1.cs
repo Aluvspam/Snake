@@ -15,32 +15,30 @@ namespace Start
     public partial class Form1 : Form
     {
         private static int Speed { get; set; }
-        public static bool GameOver { get; set; }
-        private static int Score { get; set; }
         public Form1()
         {
             InitializeComponent();
-
             Speed = 10;
-            Score = 0;
             gameTimer.Interval = 1000 / Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
-            GameOver = false;
             StartGame();
-
         }
         private void StartGame()
         {
             lblEndGame.Visible = false;//set to default
             //de resetat new settings
-            GamePlay.Instance.snake.Add();
+           // GamePlay.Instance.snake.Add(); //sarpele??
+            lblScore.Text = GamePlay.Instance.score.ToString();
+            //Food.SetRandomFoodLocation();//mancarea??
         }
         private void EndGame()
         {
-
+            string endGame = "Game over \nYour final score is: " + GamePlay.Instance.score;
+            lblEndGame.Text = endGame;
+            lblEndGame.Visible = true;
+            GamePlay.EndGame = true;
         }
-
         private void Update(object sender, EventArgs e)//
         {
 
@@ -61,12 +59,9 @@ namespace Start
         {
             if (txtName.Text != " ")
             {
-                Player.Name = txtName.Text;
+                Player.playerName  = txtName.Text;
                 Player.Difficulty = Convert.ToInt32(Difficulty.Value);
-
             }
-
-
             else
             {
                 MessageBox.Show("Please enter your name");
@@ -74,8 +69,8 @@ namespace Start
         }
         private void lblScore_Click(object sender, EventArgs e)
         {
-            lblScore.Text = Score.ToString();//set label score
-            Score += Snake.Point.Points; //update score
+            lblScore.Text = GamePlay.Instance.score.ToString();//set label score
+            GamePlay.Instance.score += Snake.Point.Points; //update score
             //Food.SetRandomFoodLocation();
         }
         private void txtName_TextChanged(object sender, EventArgs e)
