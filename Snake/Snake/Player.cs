@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Snake
 {
 	public class Player
-	{
-		public string playerName;
+	{  
+        public string playerName;
 		public int highScore;
 		public DateTime highScoreDate;
 
@@ -17,5 +17,55 @@ namespace Snake
 			pName = Console.ReadLine();
 			return pName;
 		}
-	}
+
+        static string _Name = " ";//by Dana, nu puteam accesa numele, daca il fixezi la tine, il sterg pe-al meu
+        public static string Name
+        {
+            get
+            {
+                return Name;
+            }
+            set
+            {
+                _Name = value;
+            }
+        }
+        static int _Difficulty = 0;
+        public static int Difficulty
+        {
+            get
+            {
+                return Difficulty;
+            }
+            set
+            {
+                _Difficulty = value;
+            }
+        }
+
+        static int _Height = 0;
+        public static int Height
+        {
+            get
+            {
+                return Height;
+            }
+            set
+            {
+                _Height = value;
+            }
+        }
+             static int _Width = 0;
+        public static int Width
+        {
+            get
+            {
+                return Width;
+            }
+            set
+            {
+                _Width = value;
+            }
+        }
+    }
 }

@@ -17,6 +17,7 @@ namespace Snake
         public Directions Direction { get { return snake.Direction; } }
         private static GamePlay instance;
         public static GamePlay Instance
+
         {
             get
             {
@@ -49,5 +50,7 @@ namespace Snake
             s.Eat();
         }
         #endregion
+
+
     }
 }

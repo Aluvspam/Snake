@@ -13,7 +13,7 @@ namespace Snake
 
 		public int X { get; set; }
         public int Y { get; set; }
-        
+        public static int Points { get; set; }
 
         public Point(int x, int y)
         {
@@ -21,7 +21,11 @@ namespace Snake
             X = x;
             Y = y;
         }
-		
+        public Point()
+        {
+            Points = 100;
+        }
+
         public override string ToString()
         {
             return "(" + X + ", " + Y + ")";
