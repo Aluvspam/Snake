@@ -8,8 +8,7 @@ namespace Snake
 {
     public class Player
     {
-        public static string playerName;
-        public static int Difficulty;
+        public string playerName;
         public int highScore;
         public DateTime highScoreDate;
 
