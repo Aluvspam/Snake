@@ -14,43 +14,28 @@ namespace Start
 {
     public partial class Form1 : Form
     {
-        private static GamePlay instance;
-        private  bool EndGame { get; set; }
-        private static int Speed { get; set; }
-        private static int Score { get; set; }
-        private static string PlayerName { get; set; }
-        private static int difficulty { get; set; }
-
-
+        private List<Snake.Point> mySnake = new List<Snake.Point>();
+        private Snake.Point food = new Snake.Point();
+        private static GamePlay Instance;
         public Form1()
         {
             InitializeComponent();
-            PlayerName = "";
-            Speed = 10;
-            //EndGame = false;
-            Score = 0;
-            difficulty = 0;
-            gameTimer.Interval = 1000 / Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
+            new Settings();
+            gameTimer.Interval = 1000 / Settings.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
             StartGame();
         }
         private void StartGame()
         {
-            lblEndGame.Visible = false;//set to default
-            //de resetat new settings
-           // GamePlay.Instance.snake.Add(); //sarpele??
-            lblScore.Text = Score.ToString();
-            //Food.SetRandomFoodLocation();//mancarea??
+            lblEndGame.Visible = false;//default
+            new Settings();
+            mySnake.Clear();
+            Snake.Point head = new Snake.Point { x = 10, y = 5 };
+            mySnake.Add(head);
+            lblScore.Text = Settings.Score.ToString();
+            
         }
-
-        //private void EndGame()
-        //{
-        //    string endGame = "Game over \nYour final score is: " + Score;
-        //    lblEndGame.Text = endGame;
-        //    lblEndGame.Visible = true;
-        //    EndGame = true;
-        //}
         private void Update(object sender, EventArgs e)//
         {
 
@@ -70,9 +55,9 @@ namespace Start
         {
             if (txtName.Text != " ")
             {
-                PlayerName = txtName.Text;
+                Settings.PlayerName = txtName.Text;
 
-                difficulty = Convert.ToInt32(Difficulty.Value);
+                Settings.difficulty = Convert.ToInt32(Difficulty.Value);
             }
             else
             {
@@ -81,8 +66,8 @@ namespace Start
         }
         private void lblScore_Click(object sender, EventArgs e)
         {
-            lblScore.Text = Score.ToString();//set label score
-            Score += Snake.Point.Points; //update score
+            lblScore.Text = Settings.Score.ToString();//set label score
+            Settings.Score += Settings.Points; //update score
             //Food.SetRandomFoodLocation();
         }
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -101,6 +86,7 @@ namespace Start
         {
 
         }
+
         private void Form1_Load(object sender, EventArgs e)//plansa snake game
         {
             InitializeBoard();
@@ -131,7 +117,16 @@ namespace Start
                 {
                     boardGame[col, row].ReadOnly = true;
                 }
+
             }
         }
+
+        private void Die()
+        {
+            Settings.EndGame = true;
+        }
     }
+
+
+
 }
