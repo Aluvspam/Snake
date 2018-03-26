@@ -11,26 +11,19 @@ namespace Snake
 		private int v1;
 		private int v2;
 
-		public int X { get; set; }
-        public int Y { get; set; }
-        public static int Points { get; set; }
+		public int x { get; set; }
+        public int y { get; set; }
+      
 
         public Point(int x, int y)
         {
             
-            X = x;
-            Y = y;
+            x = 0;
+            y = 0;
         }
+
         public Point()
         {
-            Points = 100;
         }
-
-        public override string ToString()
-        {
-            return "(" + X + ", " + Y + ")";
-        }
-
-
     }
 }

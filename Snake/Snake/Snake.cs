@@ -56,7 +56,7 @@ namespace Snake
 
         public void Grow()
         {
-            var aux = new Point(Body[Body.Count - 1].X, Body[Body.Count - 1].Y);
+            var aux = new Point(Body[Body.Count - 1].x, Body[Body.Count - 1].y);
             MoveForward();
             Body.Add(aux);
         }
