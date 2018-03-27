@@ -28,17 +28,32 @@ namespace Start
         }
         private void StartGame()
         {
-            lblEndGame.Visible = false;//default
+            lblEndGame.Visible = false;//reseteaza la default
             new Settings();
             mySnake.Clear();
             Snake.Point head = new Snake.Point { x = 10, y = 5 };
             mySnake.Add(head);
             lblScore.Text = Settings.Score.ToString();
-            
+            PlaceFood();
         }
+        private void PlaceFood()
+        {
+            int maxX = boardGame.Size.Width / Settings.Width;
+            int maxY = boardGame.Size.Height / Settings.Height;
+            Random random = new Random();
+            food = new Snake.Point { x = random.Next(0, maxX), y = random.Next(0, maxY) };
+
+         }
         private void Update(object sender, EventArgs e)//
         {
-
+            if (Settings.EndGame)
+            {
+               // if (btnPlay.MouseClick())//????
+                {
+                    StartGame();
+                }
+             
+            }
         }
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -57,7 +72,8 @@ namespace Start
             {
                 Settings.PlayerName = txtName.Text;
 
-                Settings.difficulty = Convert.ToInt32(Difficulty.Value);
+                Settings.Difficulty = Convert.ToInt32(Difficulty.Value);
+                //de setat butonul btnClockwise_Click or anti
             }
             else
             {

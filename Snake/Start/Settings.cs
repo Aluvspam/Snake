@@ -14,14 +14,18 @@ namespace Start
         public static int Speed { get; set; }
         public static int Score { get; set; }
         public static string PlayerName { get; set; }
-        public static int difficulty { get; set; }
+        public static int Difficulty { get; set; }
+        public static int Width { get; set; } 
+        public static int Height { get; set; }
         public Settings()
         {
+            Width = 10;
+            Height = 10;
             PlayerName = "";
             Speed = 6;
             EndGame = false;
             Score = 0;
-            difficulty = 0;
+            Difficulty = 0;
             Points = 100;
         }
     }
