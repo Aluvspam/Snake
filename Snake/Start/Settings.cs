@@ -9,7 +9,7 @@ namespace Start
 {
     public class Settings
     {
-        public static int Points { get; set; }
+        public static int Points { get; set; }//puncte scor
         public static bool EndGame { get; set; }
         public static int Speed { get; set; }
         public static int Score { get; set; }
@@ -17,6 +17,7 @@ namespace Start
         public static int Difficulty { get; set; }
         public static int Width { get; set; } 
         public static int Height { get; set; }
+        public static Snake.Enums.Directions direction { get; set; }
         public Settings()
         {
             Width = 10;
@@ -26,7 +27,8 @@ namespace Start
             EndGame = false;
             Score = 0;
             Difficulty = 0;
-            Points = 100;
+            Points = 50;
+            direction = Snake.Enums.Directions.South;
         }
     }
 }

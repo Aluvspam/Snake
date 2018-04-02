@@ -38,7 +38,7 @@ namespace Start
         }
         private void PlaceFood()
         {
-            int maxX = boardGame.Size.Width / Settings.Width;
+            int maxX = boardGame.Size.Width / Settings.Width;//max x rezultat al imp dintre lat tablei si set
             int maxY = boardGame.Size.Height / Settings.Height;
             Random random = new Random();
             food = new Snake.Point { x = random.Next(0, maxX), y = random.Next(0, maxY) };
@@ -48,24 +48,30 @@ namespace Start
         {
             if (Settings.EndGame)
             {
-               // if (btnPlay.MouseClick())//????
+               
+               // if (btnPlay.MouseClick())//??????
                 {
+                    
                     StartGame();
                 }
-             
+                      
             }
-        }
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            SystemSounds.Exclamation.Play();
-            MessageBox.Show("Are you sure you want to quit?");
-            Application.Exit();
-        }
-        private void ctnRestart_Click(object sender, EventArgs e)
-        {
-            Application.Restart();
-        }
+            else
+            {
+               // de implementat directiile
+                //MovePlayer(); de implementat
+            }
 
+            boardGame.Invalidate();//refresh
+        }
+        private void btnClockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
+        }
+        private void btnAnticlockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
+        }
         private void btnPlay_Click(object sender, EventArgs e)
         {
             if (txtName.Text != " ")
@@ -79,38 +85,13 @@ namespace Start
             {
                 MessageBox.Show("Please enter your name");
             }
+            StartGame();
         }
-        private void lblScore_Click(object sender, EventArgs e)
-        {
-            lblScore.Text = Settings.Score.ToString();//set label score
-            Settings.Score += Settings.Points; //update score
-            //Food.SetRandomFoodLocation();
-        }
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void btnClockwise_Click(object sender, EventArgs e)
-        {
-            GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
-        }
-        private void btnAnticlockwise_Click(object sender, EventArgs e)
-        {
-            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
-        }
-        private void gameTimer_Tick(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)//plansa snake game
         {
             InitializeBoard();
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
         private void InitializeBoard()
         {
             boardGame.DefaultCellStyle.BackColor = Color.DarkSlateBlue;
@@ -136,10 +117,51 @@ namespace Start
 
             }
         }
+        private void boardGame_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            SystemSounds.Exclamation.Play();
+            MessageBox.Show("Are you sure you want to quit?");
+            Application.Exit();
+        }
+        private void ctnRestart_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
 
+       
+        private void lblScore_Click(object sender, EventArgs e)
+        {
+            lblScore.Text = Settings.Score.ToString();//set label score
+            Settings.Score += Settings.Points; //update score
+            //Food.SetRandomFoodLocation();
+        }
+        
         private void Die()
         {
             Settings.EndGame = true;
+        }
+
+
+
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 
