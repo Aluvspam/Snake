@@ -14,84 +14,157 @@ namespace Start
 {
     public partial class Form1 : Form
     {
+        private List<Snake.Point> mySnake = new List<Snake.Point>();
+        private Snake.Point food = new Snake.Point();
+        private static GamePlay Instance;
         public Form1()
         {
             InitializeComponent();
+            new Settings();
+            gameTimer.Interval = 1000 / Settings.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
+            gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
+            gameTimer.Start();
+            StartGame();
         }
+        private void StartGame()
+        {
+            lblEndGame.Visible = false;//reseteaza la default
+            new Settings();
+            mySnake.Clear();
+            Snake.Point head = new Snake.Point { x = 10, y = 5 };
+            mySnake.Add(head);
+            lblScore.Text = Settings.Score.ToString();
+            PlaceFood();
+        }
+        private void PlaceFood()
+        {
+            int maxX = boardGame.Size.Width / Settings.Width;//max x rezultat al imp dintre lat tablei si set
+            int maxY = boardGame.Size.Height / Settings.Height;
+            Random random = new Random();
+            food = new Snake.Point { x = random.Next(0, maxX), y = random.Next(0, maxY) };
 
+         }
+        private void Update(object sender, EventArgs e)//
+        {
+            if (Settings.EndGame)
+            {
+               
+               // if (btnPlay.MouseClick())//??????
+                {
+                    
+                    StartGame();
+                }
+                      
+            }
+            else
+            {
+               // de implementat directiile
+                //MovePlayer(); de implementat
+            }
+
+            boardGame.Invalidate();//refresh
+        }
+        private void btnClockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
+        }
+        private void btnAnticlockwise_Click(object sender, EventArgs e)
+        {
+            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
+        }
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            if (txtName.Text != " ")
+            {
+                Settings.PlayerName = txtName.Text;
+
+                Settings.Difficulty = Convert.ToInt32(Difficulty.Value);
+                //de setat butonul btnClockwise_Click or anti
+            }
+            else
+            {
+                MessageBox.Show("Please enter your name");
+            }
+            StartGame();
+        }
+        private void Form1_Load(object sender, EventArgs e)//plansa snake game
+        {
+            InitializeBoard();
+        }
+       
+        private void InitializeBoard()
+        {
+            boardGame.DefaultCellStyle.BackColor = Color.DarkSlateBlue;
+            for (int i = 0; i < 68; i++)
+            {
+                boardGame.Rows.Add();
+            }
+            foreach (DataGridViewColumn c in boardGame.Columns)//latime coloane
+            {
+                c.Width = boardGame.Width / boardGame.Columns.Count;
+            }
+            foreach (DataGridViewRow r in boardGame.Rows)//latime randuri
+            {
+                r.Height = boardGame.Height / boardGame.Rows.Count;
+            }
+
+            for (int row = 0; row < boardGame.Rows.Count; row++)//toate celulele read only
+            {
+                for (int col = 0; col < boardGame.Columns.Count; col++)
+                {
+                    boardGame[col, row].ReadOnly = true;
+                }
+
+            }
+        }
+        private void boardGame_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
         private void btnExit_Click(object sender, EventArgs e)
         {
             SystemSounds.Exclamation.Play();
             MessageBox.Show("Are you sure you want to quit?");
             Application.Exit();
-
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ctnRestart_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
 
-        private void rbFullScreen_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbCustom.Checked == true)//Checked din winF
-            {
-                lblHeight.Visible = true;
-                lblWidth.Visible = true;
-                sizeHeight.Visible = true;
-                sizeWidth.Visible = true;
-            }
-            else
-            {
-                lblHeight.Visible = false;
-                lblWidth.Visible = false;
-                sizeHeight.Visible = false;
-                sizeWidth.Visible = false;
-            }
-        }
-
-        private void btnPlay_Click(object sender, EventArgs e)
-        {
-
-            //if (txtName.Text != " ")
-            //{
-            //    Snake.Player.PlayerName == txtName.Text;
-
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Please enter your name");
-            //}
-        }
-
-        private void Canvas_Click(object sender, EventArgs e)
-        {
-
-        }
-
+       
         private void lblScore_Click(object sender, EventArgs e)
         {
+            lblScore.Text = Settings.Score.ToString();//set label score
+            Settings.Score += Settings.Points; //update score
+            //Food.SetRandomFoodLocation();
+        }
+        
+        private void Die()
+        {
+            Settings.EndGame = true;
+        }
+
+
+
+
+        private void gameTimer_Tick(object sender, EventArgs e)
+        {
 
         }
+
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void btnClockwise_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
-        }
 
-        private void btnAnticlockwise_Click(object sender, EventArgs e)
-        {
-            GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
         }
     }
+
+
+
 }
