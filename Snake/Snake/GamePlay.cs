@@ -15,7 +15,7 @@ namespace Snake
         public int score; // increment/decrement score when snake eats
         public Snake snake;
         public Directions Direction { get { return snake.Direction; } }
-        private static GamePlay instance;
+        private static GamePlay instance;// exemplu de Singleton
         public static GamePlay Instance
         {
             get
