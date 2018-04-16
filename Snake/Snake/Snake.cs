@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Snake
 {
     public class Snake
@@ -46,9 +47,10 @@ namespace Snake
         public void MoveBody()
         {
             //Move Snake
-            Point next = Body[0];
-            Body.Insert(0, next);//TO DO: check if this method moves body as intender or grows body by 1 piece
+            //Point next = Body[0];
+            //Body.Insert(0, next);//TO DO: check if this method moves body as intender or grows body by 1 piece
         }
+         
         public void Eat()
         {
             throw new NotImplementedException();

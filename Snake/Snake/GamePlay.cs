@@ -9,13 +9,27 @@ namespace Snake
 {
     public class GamePlay
     {
-        public DateTime Speed;
+        public List<Point> mySnake = new List<Point>();
+
+        public static bool EndGame { get; set; }
+        public static int Difficulty { get; set; }
+        public static string PlayerName { get; set; }
+        public static int Speed { get; set; }
+        public static int Width { get; set; }
+        public static int Height { get; set; }
+        public static int Points { get; set; }//puncte scor
+        public static Directions direction { get; set; }
+
+
+        //public DateTime Speed;
         public int GrowLength;
         public string Wall;
-        public int score; // increment/decrement score when snake eats
-        public Snake snake;
-        public Directions Direction { get { return snake.Direction; } }
+        public static int Score { get; set; } // increment/decrement score when snake eats
+        
+        //public  Directions Direction { get { return mySnake.Direction; } }
+
         private static GamePlay instance;// exemplu de Singleton
+       
         public static GamePlay Instance
         {
             get
@@ -27,6 +41,21 @@ namespace Snake
                 return instance;
             }
         }
+        #region Constructor
+        public GamePlay()
+            {
+            Points = 50;
+            Score = 0;
+            Width = 10;
+            Height = 10;
+            Speed = 6;
+            PlayerName = "";
+            Difficulty = 0;
+            EndGame = false;
+            direction = Directions.East;
+        }
+        #endregion
+
         #region SNAKE MOTION
         public void MoveForward()
         {
@@ -42,6 +71,7 @@ namespace Snake
 
         }
         #endregion
+
         #region SNAKE EATS 
         public void SnakeEat()
         {

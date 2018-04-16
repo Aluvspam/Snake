@@ -14,56 +14,76 @@ namespace Start
 {
     public partial class Form1 : Form
     {
-        private List<Snake.Point> mySnake = new List<Snake.Point>();
+
         private Snake.Point food = new Snake.Point();
-        private static GamePlay Instance;
+        //private static GamePlay Instance;
+
+        #region InitializeComponent
         public Form1()
         {
             InitializeComponent();
-            new Settings();
-            gameTimer.Interval = 1000 / Settings.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
+            new GamePlay();
+            gameTimer.Interval = 1000 / Snake.GamePlay.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
             StartGame();
         }
+        #endregion
+
+        #region StartGame
         private void StartGame()
         {
             lblEndGame.Visible = false;//reseteaza la default
-            new Settings();
-            mySnake.Clear();
+            new GamePlay();
+            GamePlay.Instance.mySnake.Clear();
             Snake.Point head = new Snake.Point { x = 10, y = 5 };
-            mySnake.Add(head);
-            lblScore.Text = Settings.Score.ToString();
+            GamePlay.Instance.mySnake.Add(head);
+            lblScore.Text = Snake.GamePlay.Score.ToString();
             PlaceFood();
         }
+        #endregion
+
+        #region PlaceFood
         private void PlaceFood()
         {
-            int maxX = boardGame.Size.Width / Settings.Width;//max x rezultat al imp dintre lat tablei si set
-            int maxY = boardGame.Size.Height / Settings.Height;
+            int maxX = boardGame.Size.Width / GamePlay.Width;//max x rezultat al imp dintre lat tablei si set
+            int maxY = boardGame.Size.Height / GamePlay.Height;
             Random random = new Random();
             food = new Snake.Point { x = random.Next(0, maxX), y = random.Next(0, maxY) };
 
-         }
+        }
+        #endregion
+
+        #region Update
         private void Update(object sender, EventArgs e)//
         {
-            if (Settings.EndGame)
+            if (GamePlay.EndGame)
             {
-               
-               // if (btnPlay.MouseClick())//??????
-                {
-                    
-                    StartGame();
-                }
-                      
+
+                //if (btnPlay_Click == true)
+
+
+                StartGame();
+
+
             }
             else
             {
-               // de implementat directiile
-                //MovePlayer(); de implementat
+                // de implementat directiile
+                MovePlayer();
             }
 
             boardGame.Invalidate();//refresh
         }
+
+
+        #endregion
+        private void MovePlayer()
+        {
+            throw new NotImplementedException();
+        }
+
+        #region btnClockwise/Anticlockwise
         private void btnClockwise_Click(object sender, EventArgs e)
         {
             GamePlay.Instance.Turn(Snake.Enums.Turns.ClockWise);
@@ -72,13 +92,16 @@ namespace Start
         {
             GamePlay.Instance.Turn(Snake.Enums.Turns.AntiClockWise);
         }
+        #endregion
+
+        #region btnPlay
         private void btnPlay_Click(object sender, EventArgs e)
         {
             if (txtName.Text != " ")
             {
-                Settings.PlayerName = txtName.Text;
+                GamePlay.PlayerName = txtName.Text;
 
-                Settings.Difficulty = Convert.ToInt32(Difficulty.Value);
+                GamePlay.Difficulty = Convert.ToInt32(Difficulty.Value);
                 //de setat butonul btnClockwise_Click or anti
             }
             else
@@ -87,11 +110,14 @@ namespace Start
             }
             StartGame();
         }
+        #endregion
+
+        #region  InitializeBoard
         private void Form1_Load(object sender, EventArgs e)//plansa snake game
         {
             InitializeBoard();
         }
-       
+
         private void InitializeBoard()
         {
             boardGame.DefaultCellStyle.BackColor = Color.DarkSlateBlue;
@@ -117,42 +143,98 @@ namespace Start
 
             }
         }
+        #endregion
+
+        #region BoardGame_Paint
         private void boardGame_Paint(object sender, PaintEventArgs e)
         {
-           
+            Graphics boardGame = e.Graphics;
+            if (!GamePlay.EndGame)
+            {
+                for (int i = 0; i < GamePlay.Instance.mySnake.Count; i++) //move
+                {
+                    Brush mySnakeColour;
+                    if (i == 0)
+                        mySnakeColour = Brushes.White; //capul
+                    else
+                        mySnakeColour = Brushes.Red;//corpul
+                    boardGame.FillEllipse(mySnakeColour, //sarpele
+                        new Rectangle(GamePlay.Instance.mySnake[i].x * GamePlay.Width,
+                                       GamePlay.Instance.mySnake[i].y * GamePlay.Height,
+                                      GamePlay.Width, GamePlay.Height));
+
+                    boardGame.FillEllipse(Brushes.Yellow,     //mancarea
+                        new Rectangle(food.x * GamePlay.Width,
+                             food.y * GamePlay.Height, GamePlay.Width, GamePlay.Height));
+                }
+            }
+            else
+            {
+                string EndGame = "End Game \nYour final score is: " + GamePlay.Score + "\nPress Enter to try again";//???
+                lblEndGame.Text = EndGame;
+                lblEndGame.Visible = true;
+            }
+
         }
+        #endregion
+
+        #region Exit
         private void btnExit_Click(object sender, EventArgs e)
         {
             SystemSounds.Exclamation.Play();
             MessageBox.Show("Are you sure you want to quit?");
             Application.Exit();
         }
+        #endregion
+
+        #region Restart
         private void ctnRestart_Click(object sender, EventArgs e)
         {
             Application.Restart();
         }
+        #endregion
 
-       
+        #region lblScore
         private void lblScore_Click(object sender, EventArgs e)
         {
-            lblScore.Text = Settings.Score.ToString();//set label score
-            Settings.Score += Settings.Points; //update score
-            //Food.SetRandomFoodLocation();
+            lblScore.Text = GamePlay.Score.ToString();//set label score
+            Snake.GamePlay.Score += Snake.GamePlay.Points;
+
         }
-        
+        #endregion
+
+        #region Eat
+        private void Eat()
+        {
+            Snake.Point circle = new Snake.Point//cresc sarpele
+            {
+                x = GamePlay.Instance.mySnake[GamePlay.Instance.mySnake.Count - 1].x,
+
+                y = GamePlay.Instance.mySnake[GamePlay.Instance.mySnake.Count - 1].y
+            };
+            GamePlay.Instance.mySnake.Add(circle);
+
+            GamePlay.Score += GamePlay.Points;
+            lblScore.Text = GamePlay.Score.ToString();
+            PlaceFood();
+
+        }
+        #endregion
+
+        #region Die
         private void Die()
         {
-            Settings.EndGame = true;
+
+            Snake.GamePlay.EndGame = true;
         }
+        #endregion
 
-
-
-
+        #region gameTimer_Tick
         private void gameTimer_Tick(object sender, EventArgs e)
         {
 
         }
-
+        #endregion
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
@@ -163,7 +245,13 @@ namespace Start
         {
 
         }
+
+
+
+
     }
+
+
 
 
 
