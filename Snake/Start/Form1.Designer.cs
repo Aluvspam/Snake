@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnPlay = new System.Windows.Forms.Button();
             this.lblName = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -153,7 +153,6 @@
             this.txtName.Size = new System.Drawing.Size(120, 34);
             this.txtName.TabIndex = 5;
             this.txtName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // lblDifficulty
             // 
@@ -201,7 +200,6 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // ctnRestart
             // 
@@ -215,7 +213,6 @@
             this.ctnRestart.TabIndex = 12;
             this.ctnRestart.Text = "Restart";
             this.ctnRestart.UseVisualStyleBackColor = false;
-            this.ctnRestart.Click += new System.EventHandler(this.ctnRestart_Click);
             // 
             // lblOptions
             // 
@@ -255,7 +252,6 @@
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(0, 13);
             this.lblScore.TabIndex = 20;
-            this.lblScore.Click += new System.EventHandler(this.lblScore_Click);
             // 
             // btnClockwise
             // 
@@ -269,7 +265,6 @@
             this.btnClockwise.TabIndex = 21;
             this.btnClockwise.Text = "Clockwise";
             this.btnClockwise.UseVisualStyleBackColor = false;
-            this.btnClockwise.Click += new System.EventHandler(this.btnClockwise_Click);
             // 
             // btnAnticlockwise
             // 
@@ -283,7 +278,6 @@
             this.btnAnticlockwise.TabIndex = 22;
             this.btnAnticlockwise.Text = "Anticlockwise";
             this.btnAnticlockwise.UseVisualStyleBackColor = false;
-            this.btnAnticlockwise.Click += new System.EventHandler(this.btnAnticlockwise_Click);
             // 
             // Column24
             // 
@@ -722,15 +716,15 @@
             this.Column22,
             this.Column23,
             this.Column24});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(1);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.boardGame.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Maroon;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(1);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.boardGame.DefaultCellStyle = dataGridViewCellStyle2;
             this.boardGame.GridColor = System.Drawing.Color.LightBlue;
             this.boardGame.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.boardGame.Location = new System.Drawing.Point(0, 1);
@@ -739,7 +733,8 @@
             this.boardGame.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.boardGame.Size = new System.Drawing.Size(539, 548);
             this.boardGame.TabIndex = 23;
-            this.boardGame.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.boardGame.Paint += new System.Windows.Forms.PaintEventHandler(this.boardGame_Paint_1);
+            this.boardGame.KeyDown += new System.Windows.Forms.KeyEventHandler(this.boardGame_KeyDown);
             // 
             // lblEndGame
             // 
@@ -773,7 +768,6 @@
             this.ForeColor = System.Drawing.Color.Maroon;
             this.Name = "Form1";
             this.Text = "Snake Game";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Difficulty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boardGame)).EndInit();
             this.ResumeLayout(false);
