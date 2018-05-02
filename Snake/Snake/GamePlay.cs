@@ -56,30 +56,6 @@ namespace Snake
         }
         #endregion
 
-        #region SNAKE MOTION
-        public void MoveForward()
-        {
-            Snake s = new Snake();
-            s.MoveForward();
-            s.MoveBody();
-        }
-        public void Turn(Turns turnsTo)
-        {
-            Snake s = new Snake();
-            s.MoveBody();
-            s.MoveTurnHead(turnsTo);
-
-        }
-        #endregion
-
-        #region SNAKE EATS 
-        public void SnakeEat()
-        {
-            Snake s = new Snake();
-            s.Eat();
-        }
-        #endregion
-
-
+        
     }
 }
