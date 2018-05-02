@@ -16,7 +16,7 @@ namespace Start
     {
 
         private Snake.Point food = new Snake.Point();
-        //private static GamePlay Instance;
+       
 
         #region InitializeComponent
         public Form1()
