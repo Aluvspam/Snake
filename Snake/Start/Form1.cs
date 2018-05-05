@@ -85,7 +85,7 @@ namespace Start
             gameTimer.Interval = 1000; // Snake.GamePlay.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
                                        //    gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
-            StartGame();
+            //StartGame();
         }
 
 
@@ -157,7 +157,7 @@ namespace Start
                 //if (btnPlay_Click == true)
 
 
-                StartGame();
+                //StartGame();
 
 
             }
