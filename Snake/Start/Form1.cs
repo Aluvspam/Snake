@@ -93,7 +93,7 @@ namespace Start
         //    GamePlay.Instance.mySnake.Add(head);
         //    lblScore.Text = Snake.GamePlay.Score.ToString();
         //    //PlaceFood();
-        
+        //test comment
         //the game timer(added by Dana implemented by Andrei)
         private void gameTimer_Tick(object sender, EventArgs e)
         {
