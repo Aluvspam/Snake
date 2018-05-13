@@ -15,7 +15,7 @@ namespace Snake
             }
             return (bool)keyTable[key];
         }
-        public static void ChangeState(Keys key, bool state)6
+        public static void ChangeState(Keys key, bool state)
         {
             keyTable[key] = state;
         }
