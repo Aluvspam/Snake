@@ -1,29 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Snake
+﻿namespace Snake
 {
     public class Point
     {
-		private int v1;
-		private int v2;
+        //private int v1;
+        //private int v2;
 
-		public int x { get; set; }
+        public int x { get; set; }
         public int y { get; set; }
       
 
-        public Point(int x, int y)
+        public Point()//my ctor Dana
         {
             
             x = 0;
             y = 0;
         }
-
-        public Point()
+        public Point(int x, int y)
         {
+
+
         }
+
     }
 }

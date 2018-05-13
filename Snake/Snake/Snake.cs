@@ -14,7 +14,7 @@ namespace Snake
         public Point Head;
         public List<Point> Body = new List<Point>();
 
-        public Directions Direction { get; set; }
+        public Direction Direction { get; set; }
 
         public Snake()
         {

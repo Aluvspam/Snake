@@ -10,8 +10,7 @@ namespace Snake
 {
     public class GamePlay
     {
-        public List<Point> mySnake = new List<Point>();
-
+        public static int Score { get; set; } // increment/decrement score when snake eats
         public static bool EndGame { get; set; }
         public static int Difficulty { get; set; }
         public static string PlayerName { get; set; }
@@ -19,14 +18,24 @@ namespace Snake
         public static int Width { get; set; }
         public static int Height { get; set; }
         public static int Points { get; set; }//puncte scor
-        public static Directions direction { get; set; }
+        public static Direction direction { get; set; }
+        public GamePlay()
+        {
+            Points = 100;
+            Score = 0;
+            Width = 20;
+            Height = 20;
+            Speed = 5;
+            PlayerName = "";
+            Difficulty = 0;
+            EndGame = false;
+            direction = Direction.Down;
+        }
 
 
         //public DateTime Speed;
-        public int GrowLength;
-        public string Wall;
-        public static int Score { get; set; } // increment/decrement score when snake eats
-        
+        //public int GrowLength;
+        //public string Wall;
         //public  Directions Direction { get { return mySnake.Direction; } }
 
         private static GamePlay instance;// exemplu de Singleton
@@ -42,21 +51,33 @@ namespace Snake
                 return instance;
             }
         }
-        #region Constructor
-        public GamePlay()
-            {
-            Points = 50;
-            Score = 0;
-            Width = 10;
-            Height = 10;
-            Speed = 6;
-            PlayerName = "";
-            Difficulty = 0;
-            EndGame = false;
-            direction = Directions.East;
-        }
-        #endregion
+       
+       
+     
 
-        
+        //#region SNAKE MOTION
+        //public void MoveForward()
+        //{
+        //    Snake s = new Snake();
+        //    s.MoveForward();
+        //    s.MoveBody();
+        //}
+        //public void Turn(Turns turnsTo)
+        //{
+        //    Snake s = new Snake();
+        //    s.MoveBody();
+        //    s.MoveTurnHead(turnsTo);
+
+        //}
+        //#endregion
+
+        //#region SNAKE EATS 
+        //public void SnakeEat()
+        //{
+        //    Snake s = new Snake();
+        //    s.Eat();
+        //}
+        //#endregion
+
     }
 }
