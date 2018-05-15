@@ -29,17 +29,17 @@ namespace Snake
             PlayerName = "";
             Difficulty = 0;
             EndGame = false;
-            direction = Direction.Down;
+            direction = Direction.Right;
         }
 
 
-        //public DateTime Speed;
-        //public int GrowLength;
-        //public string Wall;
-        //public  Directions Direction { get { return mySnake.Direction; } }
+        // public DateTime Speed;
+        public int GrowLength;
+        public string Wall;
+        // public Directions Direction { get { return mySnake.Direction; } }
 
         private static GamePlay instance;// exemplu de Singleton
-       
+
         public static GamePlay Instance
         {
             get
@@ -51,33 +51,34 @@ namespace Snake
                 return instance;
             }
         }
-       
-       
-     
 
-        //#region SNAKE MOTION
-        //public void MoveForward()
-        //{
-        //    Snake s = new Snake();
-        //    s.MoveForward();
-        //    s.MoveBody();
-        //}
-        //public void Turn(Turns turnsTo)
-        //{
-        //    Snake s = new Snake();
-        //    s.MoveBody();
-        //    s.MoveTurnHead(turnsTo);
 
-        //}
-        //#endregion
 
-        //#region SNAKE EATS 
-        //public void SnakeEat()
-        //{
-        //    Snake s = new Snake();
-        //    s.Eat();
-        //}
-        //#endregion
+
+        #region SNAKE MOTION
+        public void MoveForward()
+        {
+            Snake s = new Snake();
+            //s.MoveForward();
+            //s.MoveBody();
+        }
+        public void Turn(Turns turnsTo)
+        {
+            Snake s = new Snake();
+            //s.MoveBody();
+            //s.MoveTurnHead(turnsTo);
+
+        }
+        #endregion
+
+        #region SNAKE EATS 
+        public void SnakeEat()
+        {
+            Snake s = new Snake();
+            //s.Eat();
+        }
+        #endregion
 
     }
 }
+

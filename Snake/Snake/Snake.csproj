@@ -49,7 +49,6 @@
     <Compile Include="Enums\Direction.cs" />
     <Compile Include="Enums\Turns.cs" />
     <Compile Include="Food.cs" />
-    <Compile Include="KeysInput.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="GamePlay.cs" />
     <Compile Include="Player.cs" />

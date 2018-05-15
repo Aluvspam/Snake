@@ -1,12 +1,9 @@
 ﻿using System.Collections;
 using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
 
-
-namespace Snake
+namespace Start
 {
-   public class KeysInput
+    internal class Insert
     {
         private static Hashtable keyTable = new Hashtable();
         public static bool KeyPressed(Keys key)
@@ -24,4 +21,3 @@ namespace Snake
 
     }
 }
-
