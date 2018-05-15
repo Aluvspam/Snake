@@ -17,7 +17,7 @@ namespace Start
         {
            InitializeComponent();
             new GamePlay();
-            gameTimer.Interval = 1000 / GamePlay.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
+            gameTimer.Interval = 1500 / GamePlay.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
             StartGame();

@@ -35,9 +35,9 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblEndGame = new System.Windows.Forms.Label();
             this.screen = new System.Windows.Forms.PictureBox();
-            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
             this.SuspendLayout();
+         
             // 
             // gameTimer
             // 
@@ -85,28 +85,12 @@
             this.screen.TabStop = false;
             this.screen.Paint += new System.Windows.Forms.PaintEventHandler(this.screen_Paint);
             // 
-            // btnExit
-            // 
-            this.btnExit.BackColor = System.Drawing.Color.Maroon;
-            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnExit.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExit.Location = new System.Drawing.Point(750, 442);
-            this.btnExit.Name = "btnExitcccc";
-            this.btnExit.Size = new System.Drawing.Size(112, 40);
-            this.btnExit.TabIndex = 11;
-            this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = false;
-            //this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.NavajoWhite;
             this.ClientSize = new System.Drawing.Size(874, 561);
-            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.lblEndGame);
             this.Controls.Add(this.lblScore);
             this.Controls.Add(this.label1);
@@ -143,6 +127,5 @@
         private System.Windows.Forms.Button btnAnticlockwise;
         private System.Windows.Forms.Label lblEndGame;
         private System.Windows.Forms.PictureBox screen;
-        private System.Windows.Forms.Button btnExit;
     }
 }

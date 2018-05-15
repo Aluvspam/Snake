@@ -25,7 +25,7 @@ namespace Snake
             Score = 0;
             Width = 20;
             Height = 20;
-            Speed = 5;
+            Speed = 6;
             PlayerName = "";
             Difficulty = 0;
             EndGame = false;
