@@ -1,5 +1,4 @@
-﻿using Snake;
-namespace Start
+﻿namespace Start
 {
     partial class Form1
     {
@@ -38,7 +37,7 @@ namespace Start
             this.screen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
             this.SuspendLayout();
-
+         
             // 
             // gameTimer
             // 
@@ -81,7 +80,7 @@ namespace Start
             this.screen.BackColor = System.Drawing.Color.Linen;
             this.screen.Location = new System.Drawing.Point(-1, 0);
             this.screen.Name = "screen";
-            this.screen.Size = new System.Drawing.Size(GamePlay.Instance., 549);
+            this.screen.Size = new System.Drawing.Size(538, 549);
             this.screen.TabIndex = 25;
             this.screen.TabStop = false;
             this.screen.Paint += new System.Windows.Forms.PaintEventHandler(this.screen_Paint);
