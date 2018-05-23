@@ -9,38 +9,38 @@ namespace Start
 {
     public partial class Form1 : Form
     {
-        private List<Snake.Point> mySnake = new List<Snake.Point>();
-        private Snake.Point food = new Snake.Point();
+        private List<Snake.Point> mySnake = new List<Snake.Point>(); //should this be in the BL project not in the UI ?
+        private Snake.Point food = new Snake.Point(); //should this be in the BL project not in the UI ?
         //private static GamePlay Instance;
-      
+
         public Form1()
         {
-           InitializeComponent();
-            new GamePlay();
+            InitializeComponent();
+            new GamePlay(); //a se vedea si StartGame()
             gameTimer.Interval = 1500 / GamePlay.Speed;//1000 milisecunde, cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;// TO DO https://msdn.microsoft.com/en-us/library/dd553229.aspx
             gameTimer.Start();
             StartGame();
         }
-     
+
         private void StartGame()
         {
             lblEndGame.Visible = false;
-            new GamePlay();
+            new GamePlay(); //a se vedea si Form1() avem nevoie de ambele apeluri?
             mySnake.Clear();
             Snake.Point head = new Snake.Point { x = 10, y = 5 };
             mySnake.Add(head);
             lblScore.Text = GamePlay.Score.ToString();
             PlaceFood();
         }
-        private void PlaceFood()
+        private void PlaceFood() //should this be in the BL project not in the UI ?
         {
             int maxX = screen.Size.Width / GamePlay.Width;//max x rezultat al imp dintre lat tablei si set
             int maxY = screen.Size.Height / GamePlay.Height;
             Random random = new Random();
             food = new Snake.Point { x = random.Next(0, maxX), y = random.Next(0, maxY) };
 
-         }
+        }
         private void Update(object sender, EventArgs e)
         {
             if (GamePlay.EndGame)
@@ -68,8 +68,8 @@ namespace Start
             }
             screen.Invalidate();//refresh
         }
-            
-        private void MovePlayer()
+
+        private void MovePlayer() //should this be in the BL project not in the UI ? or maybe split in 2 and the logic part be moved there?
         {
             for (int i = mySnake.Count - 1; i >= 0; i--)//mutare punct cu punct
             {//cap
@@ -103,7 +103,7 @@ namespace Start
                         if (mySnake[i].x == mySnake[j].x &&
                              mySnake[i].y == mySnake[j].y)
                         {
-                            
+
                             Die();
                         }
                     }
@@ -112,8 +112,8 @@ namespace Start
                     if (mySnake[0].x == food.x && mySnake[0].y == food.y)
                     {
                         Eat();
-                        
-                       
+
+
                     }
                 }
                 else
@@ -134,9 +134,9 @@ namespace Start
             Insert.ChangeState(e.KeyCode, false);
         }
 
-      
 
-        private void Eat()
+
+        private void Eat() //should this be in the BL project not in the UI ?
         {
             Snake.Point circle = new Snake.Point//cresc sarpele
             {
@@ -175,7 +175,7 @@ namespace Start
         //    StartGame();
         //}
 
-      
+
         //private void ctnRestart_Click(object sender, EventArgs e)
         //{
         //    Application.Restart();
@@ -188,11 +188,11 @@ namespace Start
         //    GamePlay.Score += GamePlay.Points; //update score
         //}
 
-        private void Die()
+        private void Die() //should this be in the BL project not in the UI ?
         {
             GamePlay.EndGame = true;
         }
-            
+
 
 
         //private void txtName_TextChanged(object sender, EventArgs e)
