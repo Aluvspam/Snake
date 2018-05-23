@@ -10,6 +10,7 @@ namespace Snake
 {
     public class GamePlay
     {
+        //TO DO: since we have an instance we don't need static properties
         public static int Score { get; set; } // increment/decrement score when snake eats
         public static bool EndGame { get; set; }
         public static int Difficulty { get; set; }

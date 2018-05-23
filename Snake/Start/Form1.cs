@@ -10,7 +10,7 @@ namespace Start
     public partial class Form1 : Form
     {
         private List<Snake.Point> mySnake = new List<Snake.Point>(); //should this be in the BL project not in the UI ?
-        private Snake.Point food = new Snake.Point(); //should this be in the BL project not in the UI ?
+        private Snake.Point food = new Snake.Point();
         //private static GamePlay Instance;
 
         public Form1()
