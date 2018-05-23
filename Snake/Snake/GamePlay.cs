@@ -23,9 +23,9 @@ namespace Snake
         {
             Points = 100;
             Score = 0;
-            Width = 20;
-            Height = 20;
-            Speed = 6;
+            Width = 10;
+            Height = 10;
+            Speed = 5;
             PlayerName = "";
             Difficulty = 0;
             EndGame = false;
