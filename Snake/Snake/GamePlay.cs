@@ -10,16 +10,20 @@ namespace Snake
 {
     public class GamePlay
     {
-        //TO DO: since we have an instance we don't need static properties
-        public static int Score { get; set; } // increment/decrement score when snake eats
-        public static bool EndGame { get; set; }
-        public static int Difficulty { get; set; }
-        public static string PlayerName { get; set; }
-        public static int Speed { get; set; }
-        public static int Width { get; set; }
-        public static int Height { get; set; }
-        public static int Points { get; set; }//puncte scor
-        public static Direction direction { get; set; }
+        public List<Point> mySnake = new List<Point>();
+        public Point food = new Point();
+
+        public int maxX;
+        public int maxY;
+        public int Score { get; set; } // increment/decrement score when snake eats
+        public  bool EndGame { get; set; }
+        public  int Difficulty { get; set; }
+        public  string PlayerName { get; set; }
+        public  int Speed { get; set; }
+        public  int Width { get; set; }
+        public  int Height { get; set; }
+        public  int Points { get; set; }//puncte scor
+        public  Direction direction { get; set; }
         public GamePlay()
         {
             Points = 100;
@@ -32,13 +36,6 @@ namespace Snake
             EndGame = false;
             direction = Direction.Right;
         }
-
-
-        // public DateTime Speed;
-        public int GrowLength;
-        public string Wall;
-        // public Directions Direction { get { return mySnake.Direction; } }
-
         private static GamePlay instance;// exemplu de Singleton
 
         public static GamePlay Instance
@@ -52,6 +49,17 @@ namespace Snake
                 return instance;
             }
         }
+        public void Die() //should this be in the BL project not in the UI ?
+        {
+            EndGame = true;
+        }
+
+        // public Directions Direction { get { return mySnake.Direction; } }
+
+
+
+
+
 
 
 

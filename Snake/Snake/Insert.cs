@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Start
 {
-    internal class Insert
+    public class Insert
     {
-        private static Hashtable keyTable = new Hashtable();
+        public static Hashtable keyTable = new Hashtable();
         public static bool KeyPressed(Keys key)
         {
             if (keyTable[key] == null)

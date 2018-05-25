@@ -37,7 +37,13 @@
             this.screen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
             this.SuspendLayout();
-         
+            // 
+            // btnExitcccc
+            // 
+            this.btnExitcccc.Location = new System.Drawing.Point(0, 0);
+            this.btnExitcccc.Name = "btnExitcccc";
+            this.btnExitcccc.Size = new System.Drawing.Size(75, 23);
+            this.btnExitcccc.TabIndex = 0;
             // 
             // gameTimer
             // 
@@ -78,6 +84,7 @@
             // screen
             // 
             this.screen.BackColor = System.Drawing.Color.Linen;
+            this.screen.ErrorImage = null;
             this.screen.Location = new System.Drawing.Point(-1, 0);
             this.screen.Name = "screen";
             this.screen.Size = new System.Drawing.Size(538, 549);
@@ -123,8 +130,8 @@
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblScore;
-        private System.Windows.Forms.Button btnClockwise;
-        private System.Windows.Forms.Button btnAnticlockwise;
+        //private System.Windows.Forms.Button btnClockwise;
+        //private System.Windows.Forms.Button btnAnticlockwise;
         private System.Windows.Forms.Label lblEndGame;
         private System.Windows.Forms.PictureBox screen;
     }
