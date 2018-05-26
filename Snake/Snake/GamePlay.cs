@@ -28,8 +28,8 @@ namespace Snake
         {
             Points = 100;
             Score = 0;
-            Width = 10;
-            Height = 10;
+            Width = 16;
+            Height = 16;
             Speed = 5;
             PlayerName = "";
             Difficulty = 0;
@@ -49,10 +49,7 @@ namespace Snake
                 return instance;
             }
         }
-        public void Die() //should this be in the BL project not in the UI ?
-        {
-            EndGame = true;
-        }
+     
 
         // public Directions Direction { get { return mySnake.Direction; } }
 

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.btnExitcccc = new System.Windows.Forms.Button();
+            //this.btnExitcccc = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
@@ -40,10 +40,10 @@
             // 
             // btnExitcccc
             // 
-            this.btnExitcccc.Location = new System.Drawing.Point(0, 0);
-            this.btnExitcccc.Name = "btnExitcccc";
-            this.btnExitcccc.Size = new System.Drawing.Size(75, 23);
-            this.btnExitcccc.TabIndex = 0;
+            //this.btnExitcccc.Location = new System.Drawing.Point(0, 0);
+            //this.btnExitcccc.Name = "btnExitcccc";
+            //this.btnExitcccc.Size = new System.Drawing.Size(75, 23);
+            //this.btnExitcccc.TabIndex = 0;
             // 
             // gameTimer
             // 
@@ -84,7 +84,6 @@
             // screen
             // 
             this.screen.BackColor = System.Drawing.Color.Linen;
-            this.screen.ErrorImage = null;
             this.screen.Location = new System.Drawing.Point(-1, 0);
             this.screen.Name = "screen";
             this.screen.Size = new System.Drawing.Size(538, 549);
@@ -105,18 +104,15 @@
             this.ForeColor = System.Drawing.Color.Maroon;
             this.Name = "Form1";
             this.Text = "Snake Game";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyIsDown);
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.screen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void LblName_Click(object sender, System.EventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
+        
 
         #endregion
         //private System.Windows.Forms.Button btnPlay;
@@ -124,7 +120,7 @@
         //private System.Windows.Forms.TextBox txtName;
         //private System.Windows.Forms.Label lblDifficulty;
         //private System.Windows.Forms.NumericUpDown Difficulty;
-        private System.Windows.Forms.Button btnExitcccc;
+        //private System.Windows.Forms.Button btnExitcccc;
         //private System.Windows.Forms.Button ctnRestart;
         //private System.Windows.Forms.Label lblOptions;
         private System.Windows.Forms.Timer gameTimer;

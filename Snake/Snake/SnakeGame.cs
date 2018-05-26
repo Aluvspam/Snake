@@ -10,10 +10,63 @@ namespace Snake
     public class SnakeGame
     {
 
-//public static void MoveBodyLogic()
-//        {
-//           //trying to move here MovePlayer logic
-//        }
+        public static void MoveBodyLogic()
+        {
+            for (int i = GamePlay.Instance.mySnake.Count - 1; i >= 0; i--)//mutare punct cu punct, cap+corp
+            {//daca capul este activ
+                if (i == 0)
+                {
+                    switch (GamePlay.Instance.direction)//mut fiecare parte a corpului, cf directiei data de cap
+                    {
+                        case Direction.Right:
+                            GamePlay.Instance.mySnake[i].x++;//punctul curent din sarpe
+                            break;
+                        case Direction.Left:
+                            GamePlay.Instance.mySnake[i].x--;
+                            break;
+                        case Direction.Up:
+                            GamePlay.Instance.mySnake[i].y--;
+                            break;
+                        case Direction.Down:
+                            GamePlay.Instance.mySnake[i].y++;
+                            break;
+
+                    }
+                    //limitez sarpele la screen, spatiul de joc
+                    //GamePlay.Instance.maxX = screen.Size.Width / GamePlay.Instance.Width;//pozitia max x si y
+                    //GamePlay.Instance.maxY = screen.Size.Height / GamePlay.Instance.Height;
+                    if (GamePlay.Instance.mySnake[i].x< 0 || GamePlay.Instance.mySnake[i].y< 0
+                        || GamePlay.Instance.mySnake[i].x >= GamePlay.Instance.maxX || GamePlay.Instance.mySnake[i].y >= GamePlay.Instance.maxY)
+
+                    {//la fiecare coleziune cu peretii, die
+                        SnakeGame.Die();
+                    }
+                    for (int j = 1; j<GamePlay.Instance.mySnake.Count; j++)//coleziunea cu corpul
+                    {
+                        if (GamePlay.Instance.mySnake[i].x == GamePlay.Instance.mySnake[j].x &&
+                             GamePlay.Instance.mySnake[i].y == GamePlay.Instance.mySnake[j].y)
+                        {
+
+                            SnakeGame.Die();
+                        }
+                    }
+
+                    //detecteaza coleziunea cu mancarea
+                    if (GamePlay.Instance.mySnake[0].x == GamePlay.Instance.food.x && GamePlay.Instance.mySnake[0].y == GamePlay.Instance.food.y)
+                    {
+                        Food.EatLogic();
+
+
+                    }
+                }
+                else
+                {
+                    //daca nu apare niciun obstacol, Move body
+                    GamePlay.Instance.mySnake[i].x = GamePlay.Instance.mySnake[i - 1].x;//muta urmatorul cerc conform cercului de dinainte, va apara ca sarpele se afla intr-o miscare continua
+                    GamePlay.Instance.mySnake[i].y = GamePlay.Instance.mySnake[i - 1].y;
+                }
+            }
+        }
 
 
 
@@ -25,7 +78,10 @@ namespace Snake
 
 
 
-
+        public static void Die()
+        {
+            GamePlay.Instance.EndGame = true;
+        }
 
 
 

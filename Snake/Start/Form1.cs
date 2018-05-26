@@ -9,19 +9,19 @@ namespace Start
 {
     public partial class Form1 : Form
     {
-      
        
-        //private static GamePlay Instance;
 
+        #region Initialize
         public Form1()
         {
             InitializeComponent();
-            new GamePlay(); 
+            new GamePlay();
             gameTimer.Interval = 1000 / GamePlay.Instance.Speed;//1000 milisec., cadre pe secunda, label update in fiecare secunda
             gameTimer.Tick += Update;
             gameTimer.Start();
             StartGame();
-        }
+        } 
+        #endregion
 
         #region Start
         private void StartGame()
@@ -83,66 +83,20 @@ namespace Start
                 MovePlayer();
             }
             screen.Invalidate();//refresh
+        }
+        #endregion
+
+        #region MovePlayer
+        private void MovePlayer()
+        {
+            SnakeGame.MoveBodyLogic();
+
+            //limitez sarpele la screen, spatiul de joc
+            GamePlay.Instance.maxX = screen.Size.Width / GamePlay.Instance.Width;//pozitia max x si y
+            GamePlay.Instance.maxY = screen.Size.Height / GamePlay.Instance.Height;
         } 
         #endregion
 
-        private void MovePlayer() //should this be in the BL project not in the UI ? or maybe split in 2 and the logic part be moved there?
-        {
-            for (int i = GamePlay.Instance.mySnake.Count - 1; i >= 0; i--)//mutare punct cu punct, cap+corp
-            {//daca capul este activ
-                if (i == 0)
-                {
-                    switch (GamePlay.Instance.direction)//mut fiecare parte a corpului, cf directiei data de cap
-                    {
-                        case Direction.Right:
-                            GamePlay.Instance.mySnake[i].x++;//punctul curent din sarpe
-                            break;
-                        case Direction.Left:
-                            GamePlay.Instance.mySnake[i].x--;
-                            break;
-                        case Direction.Up:
-                            GamePlay.Instance.mySnake[i].y--;
-                            break;
-                        case Direction.Down:
-                            GamePlay.Instance.mySnake[i].y++;
-                            break;
-
-                    }
-                    //limitez sarpele la screen, spatiul de joc
-                    GamePlay.Instance.maxX = screen.Size.Width / GamePlay.Instance.Width;//pozitia max x si y
-                    GamePlay.Instance.maxY = screen.Size.Height / GamePlay.Instance.Height;
-                    if (GamePlay.Instance.mySnake[i].x < 0 || GamePlay.Instance.mySnake[i].y < 0
-                        || GamePlay.Instance.mySnake[i].x >= GamePlay.Instance.maxX || GamePlay.Instance.mySnake[i].y >= GamePlay.Instance.maxY)
-
-                    {//la fiecare coleziune cu peretii, die
-                        GamePlay.Instance.Die();
-                    }
-                    for (int j = 1; j < GamePlay.Instance.mySnake.Count; j++)//coleziunea cu corpul
-                    {
-                        if (GamePlay.Instance.mySnake[i].x == GamePlay.Instance.mySnake[j].x &&
-                             GamePlay.Instance.mySnake[i].y == GamePlay.Instance.mySnake[j].y)
-                        {
-
-                            GamePlay.Instance.Die();
-                        }
-                    }
-
-                    //detecteaza coleziunea cu mancarea
-                    if (GamePlay.Instance.mySnake[0].x == GamePlay.Instance.food.x && GamePlay.Instance.mySnake[0].y == GamePlay.Instance.food.y)
-                    {
-                        Eat();
-
-
-                    }
-                }
-                else
-                {
-                    //daca nu apare niciun obstacol, Move body
-                    GamePlay.Instance.mySnake[i].x = GamePlay.Instance.mySnake[i - 1].x;//muta urmatorul cerc conform cercului de dinainte, va apara ca sarpele se afla intr-o miscare continua
-                    GamePlay.Instance.mySnake[i].y = GamePlay.Instance.mySnake[i - 1].y;
-                }
-            }
-        }
         #region Paint
         private void screen_Paint(object sender, PaintEventArgs e)
         {
@@ -182,11 +136,11 @@ namespace Start
         #endregion
 
         #region Key
-        private void KeyIsDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             Insert.ChangeState(e.KeyCode, true);
         }
-        private void KeyIsUp(object sender, KeyEventArgs e)
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
 
             Insert.ChangeState(e.KeyCode, false);
@@ -207,7 +161,8 @@ namespace Start
 
 
 
-
+        //TO DO 
+        //enter ? score? btn play?
         //private void btnClockwise_Click(object sender, EventArgs e)
         //{
         //   // GamePlay.Instance.Turn(Turns.ClockWise);
