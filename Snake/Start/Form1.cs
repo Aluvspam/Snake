@@ -88,11 +88,11 @@ namespace Start
 
         private void MovePlayer() //should this be in the BL project not in the UI ? or maybe split in 2 and the logic part be moved there?
         {
-            for (int i = GamePlay.Instance.mySnake.Count - 1; i >= 0; i--)//mutare punct cu punct
-            {//cap
+            for (int i = GamePlay.Instance.mySnake.Count - 1; i >= 0; i--)//mutare punct cu punct, cap+corp
+            {//daca capul este activ
                 if (i == 0)
                 {
-                    switch (GamePlay.Instance.direction)
+                    switch (GamePlay.Instance.direction)//mut fiecare parte a corpului, cf directiei data de cap
                     {
                         case Direction.Right:
                             GamePlay.Instance.mySnake[i].x++;//punctul curent din sarpe
@@ -108,11 +108,12 @@ namespace Start
                             break;
 
                     }
-
+                    //limitez sarpele la screen, spatiul de joc
                     GamePlay.Instance.maxX = screen.Size.Width / GamePlay.Instance.Width;//pozitia max x si y
                     GamePlay.Instance.maxY = screen.Size.Height / GamePlay.Instance.Height;
                     if (GamePlay.Instance.mySnake[i].x < 0 || GamePlay.Instance.mySnake[i].y < 0
                         || GamePlay.Instance.mySnake[i].x >= GamePlay.Instance.maxX || GamePlay.Instance.mySnake[i].y >= GamePlay.Instance.maxY)
+
                     {//la fiecare coleziune cu peretii, die
                         GamePlay.Instance.Die();
                     }
@@ -136,7 +137,7 @@ namespace Start
                 }
                 else
                 {
-                    //Move body
+                    //daca nu apare niciun obstacol, Move body
                     GamePlay.Instance.mySnake[i].x = GamePlay.Instance.mySnake[i - 1].x;//muta urmatorul cerc conform cercului de dinainte, va apara ca sarpele se afla intr-o miscare continua
                     GamePlay.Instance.mySnake[i].y = GamePlay.Instance.mySnake[i - 1].y;
                 }
@@ -153,9 +154,14 @@ namespace Start
                 {
                     Brush mySnakeColour;
                     if (i == 0)
+                    {
                         mySnakeColour = Brushes.Green; //capul
+                    }
+                        
                     else
+                    {
                         mySnakeColour = Brushes.Red;//corpul
+                    }
                     canvas.FillEllipse(mySnakeColour, //sarpele
                         new Rectangle(GamePlay.Instance.mySnake[i].x * GamePlay.Instance.Width,
                                        GamePlay.Instance.mySnake[i].y * GamePlay.Instance.Height,
@@ -168,7 +174,7 @@ namespace Start
             }
             else
             {
-                string endGame = "End Game \n" + "Your final score is: " + GamePlay.Instance.Score + "\nPress Enter to try again";//???
+                string endGame = "End Game \n" + "Your final score is: " + GamePlay.Instance.Score + "\nPress Enter to try again";//nu merge enter
                 lblEndGame.Text = endGame;
                 lblEndGame.Visible = true;
             }

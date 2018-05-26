@@ -67,13 +67,13 @@ namespace Snake
         #region SNAKE MOTION
         public void MoveForward()
         {
-            Snake s = new Snake();
+            SnakeGame s = new SnakeGame();
             //s.MoveForward();
             //s.MoveBody();
         }
         public void Turn(Turns turnsTo)
         {
-            Snake s = new Snake();
+            SnakeGame s = new SnakeGame();
             //s.MoveBody();
             //s.MoveTurnHead(turnsTo);
 
@@ -83,7 +83,7 @@ namespace Snake
         #region SNAKE EATS 
         public void SnakeEat()
         {
-            Snake s = new Snake();
+            SnakeGame s = new SnakeGame();
             //s.Eat();
         }
         #endregion
