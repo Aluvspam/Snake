@@ -17,9 +17,11 @@ namespace Snake
 
                 y = GamePlay.Instance.mySnake[GamePlay.Instance.mySnake.Count - 1].y
             };
-            GamePlay.Instance.mySnake.Add(circle);
+            GamePlay.Instance.mySnake.Add(circle);//aduc mancarea
 
+            
             GamePlay.Instance.Score += GamePlay.Instance.Points;
+            
         }
 
         public static void PlaceFoodLogic() 
@@ -28,6 +30,10 @@ namespace Snake
             GamePlay.Instance.food = new Point { x = random.Next(0, GamePlay.Instance.maxX), y = random.Next(0, GamePlay.Instance.maxY) };
 
         }
+
+
+
+
         //public Point location = new Point(1, 1);
         //public Random random = new Random();
 

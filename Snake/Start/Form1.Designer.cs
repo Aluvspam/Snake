@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            //this.btnExitcccc = new System.Windows.Forms.Button();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
@@ -37,13 +36,6 @@
             this.screen = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.screen)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnExitcccc
-            // 
-            //this.btnExitcccc.Location = new System.Drawing.Point(0, 0);
-            //this.btnExitcccc.Name = "btnExitcccc";
-            //this.btnExitcccc.Size = new System.Drawing.Size(75, 23);
-            //this.btnExitcccc.TabIndex = 0;
             // 
             // gameTimer
             // 
@@ -65,6 +57,7 @@
             // lblScore
             // 
             this.lblScore.AutoSize = true;
+            this.lblEndGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScore.Location = new System.Drawing.Point(670, 24);
             this.lblScore.Name = "lblScore";
             this.lblScore.Size = new System.Drawing.Size(0, 13);
@@ -76,9 +69,9 @@
             this.lblEndGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndGame.Location = new System.Drawing.Point(26, 24);
             this.lblEndGame.Name = "lblEndGame";
-            this.lblEndGame.Size = new System.Drawing.Size(108, 37);
+            this.lblEndGame.Size = new System.Drawing.Size(168, 37);
             this.lblEndGame.TabIndex = 3;
-            this.lblEndGame.Text = "label2";
+            this.lblEndGame.Text = "EndGame";
             this.lblEndGame.Visible = false;
             // 
             // screen
@@ -125,7 +118,7 @@
         //private System.Windows.Forms.Label lblOptions;
         private System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblScore;
+        public System.Windows.Forms.Label lblScore;
         //private System.Windows.Forms.Button btnClockwise;
         //private System.Windows.Forms.Button btnAnticlockwise;
         private System.Windows.Forms.Label lblEndGame;

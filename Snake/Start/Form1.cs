@@ -42,17 +42,20 @@ namespace Start
             GamePlay.Instance.maxX = screen.Size.Width / GamePlay.Instance.Width;//max x rezultat al imp dintre lat tablei si set
             GamePlay.Instance.maxY = screen.Size.Height / GamePlay.Instance.Height;
             Food.PlaceFoodLogic();
-
+           
         } 
         #endregion
 
         #region Eat
         private void Eat()
         {
-
-            Food.EatLogic();
-            PlaceFood();
             lblScore.Text = GamePlay.Instance.Score.ToString();
+            GamePlay.Instance.Score += GamePlay.Instance.Points;
+            Food.EatLogic();
+           
+            
+
+            PlaceFood();
         } 
         #endregion
 
@@ -109,7 +112,7 @@ namespace Start
                     Brush mySnakeColour;
                     if (i == 0)
                     {
-                        mySnakeColour = Brushes.Green; //capul
+                        mySnakeColour = Brushes.Blue; //capul
                     }
                         
                     else
@@ -121,7 +124,7 @@ namespace Start
                                        GamePlay.Instance.mySnake[i].y * GamePlay.Instance.Height,
                                        GamePlay.Instance.Width, GamePlay.Instance.Height));
 
-                    canvas.FillEllipse(Brushes.Yellow,     //mancarea
+                    canvas.FillEllipse(Brushes.Green,     //mancarea
                         new Rectangle(GamePlay.Instance.food.x * GamePlay.Instance.Width,
                               GamePlay.Instance.food.y * GamePlay.Instance.Height, GamePlay.Instance.Width, GamePlay.Instance.Height));
                 }

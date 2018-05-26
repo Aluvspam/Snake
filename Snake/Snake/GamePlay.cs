@@ -12,7 +12,7 @@ namespace Snake
     {
         public List<Point> mySnake = new List<Point>();
         public Point food = new Point();
-
+     
         public int maxX;
         public int maxY;
         public int Score { get; set; } // increment/decrement score when snake eats
@@ -28,8 +28,8 @@ namespace Snake
         {
             Points = 100;
             Score = 0;
-            Width = 16;
-            Height = 16;
+            Width = 17;
+            Height = 17;
             Speed = 5;
             PlayerName = "";
             Difficulty = 0;
@@ -51,7 +51,7 @@ namespace Snake
         }
      
 
-        // public Directions Direction { get { return mySnake.Direction; } }
+    
 
 
 
